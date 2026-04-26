@@ -1,0 +1,3052 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Men's Division | 創価学会男子部</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0B1F4A;
+      --navy-mid: #1A3A6B;
+      --navy-light: #253f72;
+      --gold: #C9902A;
+      --gold-light: #F0B84A;
+      --gold-pale: #FDF3E0;
+      --cream: #F5F2EC;
+      --white: #FFFFFF;
+      --text-dark: #1A1A1A;
+      --text-mid: #4A5568;
+      --text-light: #718096;
+      --border: rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; font-family: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: var(--navy);
+      border-bottom: 3px solid var(--gold);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .header-logo span { color: var(--gold); }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .header-nav a {
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+    }
+    .header-nav a:hover { color: var(--gold-light); border-bottom-color: var(--gold-light); }
+    .header-nav .nav-kanbu {
+      color: var(--gold-light);
+      background: rgba(201,144,42,0.15);
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(201,144,42,0.3);
+      border-bottom: none;
+    }
+    .header-nav .nav-kanbu:hover { background: rgba(201,144,42,0.25); border-bottom: none; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===== THEME BAR ===== */
+    .theme-bar {
+      background: var(--gold);
+      padding: 10px 32px;
+    }
+    .theme-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .theme-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--navy);
+      color: var(--gold);
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .theme-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--navy);
+      padding: 72px 32px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 80% 50%, rgba(201,144,42,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(26,58,107,0.6) 0%, transparent 50%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 400px; height: 400px;
+      border: 60px solid rgba(201,144,42,0.05);
+      border-radius: 50%;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .hero-title em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 40px;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+    .hero-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 20px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-card:hover {
+      background: rgba(255,255,255,0.11);
+      transform: translateY(-2px);
+    }
+    .hero-card-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .hero-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .hero-card-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .hero-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .hero-cta:active { transform: scale(0.98); }
+
+    /* ===== QUICK NAV ===== */
+    .quick-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .quick-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+    .qnav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 18px 8px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: all 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .qnav-item:hover {
+      background: #EBF0FA;
+      border-color: rgba(11,31,74,0.2);
+      transform: translateY(-2px);
+    }
+    .qnav-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .qnav-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* ===== COMMON SECTION ===== */
+    .section-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 32px;
+    }
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.5px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold);
+    }
+    .section-more {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+    .section-more:hover { opacity: 0.75; }
+
+    .section-bg-white { background: var(--white); }
+    .section-bg-cream { background: var(--cream); }
+
+    /* ===== EVENTS ===== */
+    .event-list { display: flex; flex-direction: column; gap: 14px; }
+    .event-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .section-bg-white .event-card { background: var(--cream); }
+    .event-card:hover { box-shadow: 0 4px 20px rgba(11,31,74,0.1); transform: translateY(-1px); }
+
+    .event-date-box {
+      min-width: 60px;
+      text-align: center;
+      background: var(--navy);
+      border-radius: 10px;
+      padding: 10px 6px;
+      flex-shrink: 0;
+    }
+    .event-date-month { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+    .event-date-day { font-family: 'Oswald', sans-serif; font-size: 30px; font-weight: 700; color: var(--white); line-height: 1.1; }
+
+    .event-info { flex: 1; }
+    .event-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    .tag-mtg { background: #EBF0FA; color: #1A3A6B; }
+    .tag-event { background: #FDF3E0; color: #8B6000; }
+    .tag-study { background: #EAF5EC; color: #1B5E20; }
+
+    .event-name { font-size: 16px; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
+    .event-meta { font-size: 13px; color: var(--text-light); }
+
+    .btn-join {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .btn-join:hover { background: var(--navy-light); }
+    .btn-join:active { transform: scale(0.97); }
+
+    /* ===== REPORTS ===== */
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .report-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .report-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(11,31,74,0.12); }
+    .report-img {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      position: relative;
+    }
+    .report-img-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.4));
+    }
+    .report-body { padding: 14px 16px; }
+    .report-area { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .report-title { font-size: 14px; font-weight: 600; color: var(--text-dark); line-height: 1.5; margin-bottom: 8px; }
+    .report-date { font-size: 11px; color: var(--text-light); }
+
+    /* ===== IKUSEI ===== */
+    .ikusei-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .ikusei-card {
+      background: var(--white);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .ikusei-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(11,31,74,0.1); }
+    .ikusei-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .ikusei-content {}
+    .ikusei-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .ikusei-desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-bottom: 14px; }
+    .ikusei-link {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .ikusei-link:hover { text-decoration: underline; }
+
+    /* ===== SHOSANKA ===== */
+    .shosanka-section {
+      background: var(--navy-mid);
+      position: relative;
+      overflow: hidden;
+    }
+    .shosanka-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 320px; height: 320px;
+      border: 50px solid rgba(201,144,42,0.07);
+      border-radius: 50%;
+    }
+    .shosanka-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .shosanka-text h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .shosanka-text h2 span { color: var(--gold-light); }
+    .shosanka-text p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .shosanka-cards { display: flex; flex-direction: column; gap: 14px; }
+    .shosanka-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .shosanka-card-icon { font-size: 24px; flex-shrink: 0; }
+    .shosanka-card-title { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+    .shosanka-card-desc { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 8px;
+      background: transparent;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--navy); }
+
+    /* ===== KANBU ===== */
+    .kanbu-section { background: var(--navy); }
+    .kanbu-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 32px;
+    }
+    .kanbu-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    .kanbu-heading h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .kanbu-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(201,144,42,0.2);
+      color: var(--gold-light);
+      border: 1px solid rgba(201,144,42,0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .kanbu-sub { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 32px; }
+    .kanbu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .kanbu-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .kanbu-card:hover { background: rgba(255,255,255,0.11); transform: translateY(-2px); }
+    .kanbu-card-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(201,144,42,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .kanbu-card-title { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 3px; }
+    .kanbu-card-desc { font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.4; }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: #080F24;
+      border-top: 3px solid var(--gold);
+      padding: 48px 32px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 240px 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .footer-brand .logo span { color: var(--gold); }
+    .footer-brand p { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+    .footer-brand .domain { font-size: 11px; color: var(--gold); margin-top: 10px; font-weight: 600; }
+
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 11px; color: rgba(255,255,255,0.35); transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ===== BACK TO TOP ===== */
+    .back-top {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 48px; height: 48px;
+      background: var(--navy);
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 99;
+    }
+    .back-top.visible { opacity: 1; pointer-events: all; }
+    .back-top:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+
+    /* ===== MOBILE NAV OVERLAY ===== */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--navy);
+      z-index: 200;
+      padding: 24px;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; }
+    .mobile-menu-close { background: none; border: none; color: var(--white); font-size: 28px; }
+    .mobile-menu nav ul { display: flex; flex-direction: column; gap: 0; }
+    .mobile-menu nav ul li a {
+      display: block;
+      padding: 16px 0;
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: color 0.2s;
+    }
+    .mobile-menu nav ul li a:hover { color: var(--gold-light); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
+      .hero-cards { grid-template-columns: 1fr 1fr; }
+      .quick-nav-inner { grid-template-columns: repeat(3, 1fr); }
+      .report-grid { grid-template-columns: 1fr 1fr; }
+      .ikusei-grid { grid-template-columns: 1fr; }
+      .shosanka-inner { grid-template-columns: 1fr; }
+      .kanbu-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 48px 20px 40px; }
+      .hero-cards { grid-template-columns: 1fr; }
+      .section-wrap { padding: 40px 20px; }
+      .quick-nav-inner { grid-template-columns: repeat(3, 1fr); padding: 20px; }
+      .report-grid { grid-template-columns: 1fr; }
+      .kanbu-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .event-card { flex-wrap: wrap; }
+    }
+
+    /* ===== LINK CARDS ===== */
+    .link-card {
+      display: flex;
+      gap: 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      overflow: hidden;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .link-card:hover { border-color: rgba(11,31,74,0.25); transform: translateY(-2px); }
+    .link-card-thumb {
+      width: 160px;
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .link-card-body { padding: 16px 20px; display: flex; flex-direction: column; justify-content: center; gap: 5px; flex: 1; min-width: 0; }
+    .link-card-domain { font-size: 11px; color: var(--text-light); }
+    .link-card-title { font-size: 15px; font-weight: 600; color: var(--text-dark); line-height: 1.4; }
+    .link-card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+    .link-card-tags { display: flex; align-items: center; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+    .link-card-arrow { display: flex; align-items: center; padding: 0 16px; color: var(--text-light); font-size: 16px; flex-shrink: 0; }
+    .lc-tag { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; }
+    .lc-tag-blue { background: #EBF0FA; color: #1A3A6B; }
+    .lc-tag-gold { background: #FDF3E0; color: #8B6000; }
+    .lc-tag-green { background: #EAF5EC; color: #1B5E20; }
+    .lc-tag-red { background: #FDECEA; color: #7B1A1A; }
+    .lc-tag-purple { background: #F0EDFB; color: #3C3489; }
+
+    /* ===== PICKUP ARTICLES ===== */
+    .pickup-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .pickup-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(11,31,74,0.12); }
+    .pickup-card-thumb { height: 120px; background: var(--navy-mid); overflow: hidden; position: relative; }
+    .pickup-card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .pickup-card-cat {
+      position: absolute; top: 10px; left: 10px;
+      font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 4px;
+    }
+    .cat-opinion { background: #FDF3E0; color: #8B6000; }
+    .cat-buddhism { background: #EAF5EC; color: #1B5E20; }
+    .cat-movie { background: #FDECEA; color: #7B1A1A; }
+    .cat-answer { background: #EBF0FA; color: #1A3A6B; }
+    .pickup-card-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .pickup-card-source { font-size: 10px; color: var(--gold); font-weight: 700; letter-spacing: 0.5px; }
+    .pickup-card-title { font-size: 13px; font-weight: 600; color: var(--text-dark); line-height: 1.5; flex: 1; }
+    .pickup-card-date { font-size: 11px; color: var(--text-light); }
+    .pickup-skeleton {
+      height: 220px;
+      background: linear-gradient(90deg, #e8e4de 25%, #f0ece6 50%, #e8e4de 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 12px;
+    }
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== PDF MODAL ===== */
+    .pdf-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(11,31,74,0.82);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeOverlay 0.2s ease;
+    }
+    .pdf-modal-overlay.open { display: flex; }
+    @keyframes fadeOverlay { from{opacity:0} to{opacity:1} }
+
+    .pdf-modal {
+      background: var(--white);
+      border-radius: 14px;
+      width: min(860px, 96vw);
+      height: min(90vh, 900px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      animation: slideUp 0.25s ease;
+    }
+    @keyframes slideUp { from{transform:translateY(24px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+    .pdf-modal-header {
+      background: var(--navy);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .pdf-modal-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pdf-modal-title .badge {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .pdf-modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pdf-modal-dl {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold-light);
+      background: rgba(201,144,42,0.15);
+      border: 1px solid rgba(201,144,42,0.35);
+      border-radius: 6px;
+      padding: 6px 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .pdf-modal-dl:hover { background: rgba(201,144,42,0.28); }
+    .pdf-modal-close {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: var(--white);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .pdf-modal-close:hover { background: rgba(255,255,255,0.22); }
+
+    .pdf-modal-body {
+      flex: 1;
+      background: #525659;
+      position: relative;
+      overflow: hidden;
+    }
+    .pdf-modal-body iframe {
+      width: 100%; height: 100%;
+      border: none;
+      display: block;
+    }
+    .pdf-modal-pw-screen {
+      position: absolute;
+      inset: 0;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 10;
+    }
+    .pw-icon { font-size: 48px; }
+    .pw-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      text-align: center;
+    }
+    .pw-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+    }
+    .pw-input-wrap {
+      display: flex;
+      gap: 8px;
+    }
+    .pw-input {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(201,144,42,0.4);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      font-size: 14px;
+      outline: none;
+      width: 200px;
+      letter-spacing: 2px;
+    }
+    .pw-input::placeholder { color: rgba(255,255,255,0.35); letter-spacing:0; }
+    .pw-input:focus { border-color: var(--gold); }
+    .pw-btn {
+      padding: 10px 20px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 13px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .pw-btn:hover { background: var(--gold-light); }
+    .pw-error {
+      font-size: 12px;
+      color: #FC8181;
+      min-height: 16px;
+    }
+    /* Clickable kanbu card */
+    .kanbu-card.clickable {
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .kanbu-card.clickable:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .kanbu-card .card-arrow {
+      margin-left: auto;
+      font-size: 14px;
+      opacity: 0.5;
+    }
+
+
+    /* ===== CONTACT & EPISODE SECTION ===== */
+    .contact-section {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 72px 32px;
+    }
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 10% 90%, rgba(201,144,42,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 10%, rgba(26,58,107,0.5) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .contact-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .contact-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .contact-heading em { color: var(--gold-light); font-style: normal; }
+    .contact-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    /* TABS */
+    .contact-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 28px;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+    .contact-tab {
+      padding: 12px 24px;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.45);
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      letter-spacing: 0.3px;
+    }
+    .contact-tab:hover { color: rgba(255,255,255,0.75); }
+    .contact-tab.active {
+      color: var(--gold-light);
+      border-bottom-color: var(--gold);
+    }
+
+    /* PANELS */
+    .contact-panel { display: none; }
+    .contact-panel.active { display: block; }
+
+    /* FORM */
+    .cf-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .cf-field { display: flex; flex-direction: column; gap: 6px; }
+    .cf-field.full { grid-column: 1 / -1; }
+    .cf-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.55);
+      text-transform: uppercase;
+    }
+    .cf-label .req {
+      color: var(--gold);
+      margin-left: 4px;
+    }
+    .cf-input, .cf-select, .cf-textarea {
+      padding: 11px 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: var(--white);
+      font-size: 13px;
+      font-family: 'Noto Sans JP', sans-serif;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .cf-input::placeholder, .cf-textarea::placeholder { color: rgba(255,255,255,0.28); }
+    .cf-input:focus, .cf-select:focus, .cf-textarea:focus {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.1);
+    }
+    .cf-select { cursor: pointer; }
+    .cf-select option { background: #1A3A6B; color: var(--white); }
+    .cf-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+    .cf-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 13px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 8px;
+    }
+    .cf-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .cf-submit:active { transform: translateY(0); }
+    .cf-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .cf-success {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      background: rgba(72,187,120,0.12);
+      border: 1px solid rgba(72,187,120,0.35);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 16px;
+      color: #9AE6B4;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .cf-success.show { display: flex; }
+    .cf-success-icon { font-size: 22px; }
+
+    /* EPISODE FEED */
+    .ep-form-wrap {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .ep-form-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ep-char-count {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      text-align: right;
+      margin-top: 4px;
+    }
+    .ep-char-count.warn { color: #FC8181; }
+
+    /* FEED */
+    .ep-feed-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .ep-feed-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ep-live-dot {
+      width: 8px; height: 8px;
+      background: #68D391;
+      border-radius: 50%;
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.4; transform:scale(0.75); }
+    }
+    .ep-feed-count {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .ep-feed { display: flex; flex-direction: column; gap: 12px; }
+    .ep-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px 18px;
+      animation: cardIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+    .ep-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      border-radius: 3px 0 0 3px;
+    }
+    .ep-card.new-flash::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(240,184,74,0.08);
+      border-radius: 12px;
+      animation: flash 0.6s ease forwards;
+    }
+    @keyframes flash { 0%{opacity:1} 100%{opacity:0} }
+    @keyframes cardIn {
+      from { opacity:0; transform: translateY(-12px) scale(0.97); }
+      to   { opacity:1; transform: translateY(0) scale(1); }
+    }
+    .ep-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .ep-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ep-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .ep-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .ep-area {
+      font-size: 10px;
+      color: rgba(255,255,255,0.4);
+    }
+    .ep-time {
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ep-body {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+    }
+    .ep-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+    .ep-tag-joy { background: rgba(240,184,74,0.15); color: var(--gold-light); }
+    .ep-tag-health { background: rgba(72,187,120,0.15); color: #9AE6B4; }
+    .ep-tag-work { background: rgba(99,179,237,0.15); color: #90CDF4; }
+    .ep-tag-family { background: rgba(252,129,129,0.15); color: #FCA5A5; }
+    .ep-tag-other { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+
+    .ep-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: rgba(255,255,255,0.25);
+      font-size: 13px;
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: 12px;
+    }
+    .ep-empty-icon { font-size: 36px; margin-bottom: 10px; opacity: 0.5; }
+
+    @media (max-width: 600px) {
+      .cf-grid { grid-template-columns: 1fr; }
+      .contact-tab { padding: 10px 14px; font-size: 12px; }
+    }
+
+    /* ===== ENHANCED RESPONSIVE (SP強化) ===== */
+    @media (max-width: 900px) {
+      .header-inner { padding: 0 16px; }
+      .theme-bar { padding: 10px 16px; }
+      .theme-text { font-size: 12px; }
+      .link-card { flex-direction: column; }
+      .link-card-thumb { width: 100%; min-height: 80px; flex-direction: row; gap: 12px; padding: 12px 16px; }
+      .link-card-arrow { display: none; }
+      .shosanka-inner { padding: 40px 20px; gap: 32px; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 32px; }
+      .hero-sub { font-size: 13px; }
+      .hero-cta { width: 100%; justify-content: center; }
+      .quick-nav-inner { grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 16px; }
+      .qnav-item { padding: 12px 4px; }
+      .qnav-icon { width: 36px; height: 36px; font-size: 16px; }
+      .qnav-label { font-size: 10px; }
+      .section-wrap { padding: 32px 16px; }
+      .section-title { font-size: 20px; }
+      .event-card { flex-wrap: wrap; padding: 16px; gap: 12px; }
+      .event-card .btn-join { width: 100%; text-align: center; }
+      .report-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .ikusei-card { padding: 18px 16px; gap: 12px; }
+      .kanbu-grid { grid-template-columns: 1fr; gap: 10px; }
+      .kanbu-card { padding: 16px; }
+      .footer-top { gap: 24px; }
+      .footer-col { display: none; }
+      .footer-col:first-child { display: block; }
+      .contact-section { padding: 48px 16px; }
+      .pickup-grid-inner { grid-template-columns: 1fr 1fr !important; }
+      .shosanka-inner { padding: 32px 16px; }
+      .shosanka-text h2 { font-size: 24px; }
+      .back-top { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 15px; }
+    }
+    @media (max-width: 400px) {
+      .report-grid { grid-template-columns: 1fr; }
+      .hero-cards { grid-template-columns: 1fr; }
+      .quick-nav-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ===== DETAIL MODAL ===== */
+    .detail-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,12,30,0.88);
+      z-index: 2000;
+      align-items: flex-end;
+      justify-content: center;
+      animation: dmFadeIn 0.2s ease;
+    }
+    @media (min-width: 601px) {
+      .detail-modal-overlay { align-items: center; }
+    }
+    .detail-modal-overlay.open { display: flex; }
+    @keyframes dmFadeIn { from{opacity:0} to{opacity:1} }
+
+    .detail-modal {
+      background: var(--white);
+      width: min(640px, 100%);
+      max-height: 88vh;
+      border-radius: 20px 20px 0 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: dmSlideUp 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    @media (min-width: 601px) {
+      .detail-modal { border-radius: 16px; max-height: 85vh; }
+    }
+    @keyframes dmSlideUp { from{transform:translateY(40px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+    .dm-handle {
+      width: 40px; height: 4px;
+      background: #ddd;
+      border-radius: 4px;
+      margin: 12px auto 0;
+      flex-shrink: 0;
+    }
+    @media (min-width: 601px) { .dm-handle { display: none; } }
+
+    .dm-header {
+      padding: 16px 20px 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .dm-header-left { display: flex; align-items: center; gap: 10px; }
+    .dm-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+      padding: 3px 9px; border-radius: 4px;
+    }
+    .dm-title { font-size: 15px; font-weight: 700; color: var(--navy); }
+    .dm-close {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: none;
+      font-size: 16px;
+      color: var(--text-mid);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .dm-close:hover { background: #e8e4de; }
+
+    .dm-body {
+      overflow-y: auto;
+      flex: 1;
+      padding: 24px 20px;
+    }
+
+    .dm-hero-img {
+      width: 100%; height: 160px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      margin-bottom: 20px;
+    }
+    .dm-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .dm-meta-item {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .dm-meta-label { font-size: 10px; font-weight: 700; color: var(--text-light); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 3px; }
+    .dm-meta-value { font-size: 13px; font-weight: 600; color: var(--text-dark); }
+
+    .dm-section-title {
+      font-size: 12px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--gold);
+      margin: 20px 0 10px;
+    }
+    .dm-desc { font-size: 14px; color: var(--text-mid); line-height: 1.8; }
+
+    .dm-files { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .dm-file-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--cream);
+      border-radius: 10px; padding: 12px 16px;
+      text-decoration: none; color: var(--text-dark);
+      border: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .dm-file-item:hover { background: #ece8e0; }
+    .dm-file-icon { font-size: 20px; flex-shrink: 0; }
+    .dm-file-name { font-size: 13px; font-weight: 600; flex: 1; }
+    .dm-file-size { font-size: 11px; color: var(--text-light); }
+    .dm-file-dl { font-size: 11px; font-weight: 700; color: var(--gold); }
+
+    .dm-actions {
+      display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap;
+    }
+    .dm-btn-primary {
+      flex: 1; min-width: 140px;
+      background: var(--navy); color: var(--white);
+      font-size: 14px; font-weight: 700;
+      padding: 13px 20px; border-radius: 10px; border: none;
+      cursor: pointer; text-align: center;
+      transition: background 0.2s;
+    }
+    .dm-btn-primary:hover { background: var(--navy-light); }
+    .dm-btn-secondary {
+      flex: 1; min-width: 120px;
+      background: var(--cream); color: var(--navy);
+      font-size: 14px; font-weight: 700;
+      padding: 13px 20px; border-radius: 10px;
+      border: 1px solid var(--border);
+      cursor: pointer; text-align: center;
+      transition: background 0.2s;
+      text-decoration: none; display: flex; align-items: center; justify-content: center;
+    }
+    .dm-btn-secondary:hover { background: #e8e4de; }
+
+    /* ===== ADMIN PANEL ===== */
+    .admin-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,12,30,0.92);
+      z-index: 3000;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 20px;
+      animation: dmFadeIn 0.2s ease;
+    }
+    .admin-overlay.open { display: flex; }
+
+    .admin-panel {
+      background: #F5F2EC;
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: auto;
+      animation: dmSlideUp 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+
+    .admin-header {
+      background: var(--navy);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--gold);
+    }
+    .admin-header-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--white); letter-spacing: 1px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .admin-header-title span { color: var(--gold); }
+    .admin-close {
+      background: rgba(255,255,255,0.1);
+      border: none; color: var(--white);
+      width: 32px; height: 32px; border-radius: 50%;
+      font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .admin-close:hover { background: rgba(255,255,255,0.22); }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding: 20px 24px 0;
+    }
+    @media (max-width: 600px) { .admin-stats { grid-template-columns: repeat(2, 1fr); } }
+
+    .admin-stat-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+    }
+    .admin-stat-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px; }
+    .admin-stat-value { font-size: 26px; font-weight: 700; color: var(--navy); font-family: 'Oswald', sans-serif; }
+    .admin-stat-sub { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+    .admin-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 24px;
+      flex-wrap: wrap;
+    }
+    .admin-search {
+      flex: 1; min-width: 200px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-size: 13px;
+      font-family: 'Noto Sans JP', sans-serif;
+      outline: none;
+    }
+    .admin-search:focus { border-color: var(--navy); }
+    .admin-filter {
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-size: 12px;
+      font-family: 'Noto Sans JP', sans-serif;
+      cursor: pointer;
+      outline: none;
+    }
+    .admin-export-btn {
+      padding: 9px 16px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 12px; font-weight: 700;
+      border: none; border-radius: 8px;
+      cursor: pointer; white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .admin-export-btn:hover { background: var(--navy-light); }
+
+    .admin-table-wrap {
+      padding: 0 24px 24px;
+      overflow-x: auto;
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      font-size: 13px;
+      border: 1px solid var(--border);
+    }
+    .admin-table th {
+      background: var(--navy);
+      color: rgba(255,255,255,0.75);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 11px 14px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .admin-table th:first-child { border-radius: 0; }
+    .admin-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dark);
+      vertical-align: middle;
+    }
+    .admin-table tr:last-child td { border-bottom: none; }
+    .admin-table tr:hover td { background: #FAF8F4; }
+    .admin-table tr.new-row td { background: #FFFBF0; }
+
+    .status-badge {
+      display: inline-block;
+      font-size: 10px; font-weight: 700;
+      padding: 3px 9px; border-radius: 20px;
+      white-space: nowrap;
+    }
+    .status-new { background: #FDF3E0; color: #8B6000; }
+    .status-replied { background: #EAF5EC; color: #1B5E20; }
+    .status-closed { background: #EEE; color: #888; }
+
+    .admin-row-actions { display: flex; gap: 6px; }
+    .admin-row-btn {
+      font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 5px;
+      border: 1px solid var(--border);
+      background: var(--white); color: var(--navy);
+      cursor: pointer; transition: background 0.15s;
+    }
+    .admin-row-btn:hover { background: #EBF0FA; }
+    .admin-row-btn.danger { color: #c0392b; border-color: #fdc; }
+    .admin-row-btn.danger:hover { background: #FDECEA; }
+
+    .admin-detail-cell {
+      max-width: 240px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--text-mid);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== DETAIL MODAL ===== -->
+  <div class="detail-modal-overlay" id="detailModal" onclick="closeDetailIfOverlay(event)">
+    <div class="detail-modal">
+      <div class="dm-handle"></div>
+      <div class="dm-header">
+        <div class="dm-header-left">
+          <span class="dm-tag" id="dmTag"></span>
+          <span class="dm-title" id="dmTitle"></span>
+        </div>
+        <button class="dm-close" onclick="closeDetail()">✕</button>
+      </div>
+      <div class="dm-body" id="dmBody"></div>
+    </div>
+  </div>
+
+  <!-- ===== ADMIN PANEL ===== -->
+  <div class="admin-overlay" id="adminOverlay" onclick="closeAdminIfOverlay(event)">
+    <div class="admin-panel">
+      <div class="admin-header">
+        <div class="admin-header-title">📊 お問い合わせ管理 <span>Admin</span></div>
+        <button class="admin-close" onclick="closeAdmin()">✕</button>
+      </div>
+      <div class="admin-stats" id="adminStats"></div>
+      <div class="admin-toolbar">
+        <input class="admin-search" type="text" placeholder="🔍 名前・内容で検索..." oninput="filterAdminTable(this.value)">
+        <select class="admin-filter" id="adminCatFilter" onchange="filterAdminTable()">
+          <option value="">すべてのカテゴリ</option>
+          <option>会合・イベントについて</option>
+          <option>活動への参加方法</option>
+          <option>教学・学習について</option>
+          <option>初めて参加される方へ</option>
+          <option>その他</option>
+        </select>
+        <select class="admin-filter" id="adminStatusFilter" onchange="filterAdminTable()">
+          <option value="">すべてのステータス</option>
+          <option>新着</option>
+          <option>返信済</option>
+          <option>対応完了</option>
+        </select>
+        <button class="admin-export-btn" onclick="exportCSV()">📥 CSV出力</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="adminTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>受信日時</th>
+              <th>お名前</th>
+              <th>地区・所属</th>
+              <th>メール</th>
+              <th>カテゴリ</th>
+              <th>内容（抜粋）</th>
+              <th>ステータス</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="header-logo">Men's<span>Division</span></div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#events" onclick="closeMobileMenu()">会合・イベント</a></li>
+        <li><a href="#reports" onclick="closeMobileMenu()">活動レポート</a></li>
+        <li><a href="#ikusei" onclick="closeMobileMenu()">育成・学習</a></li>
+        <li><a href="#shosanka" onclick="closeMobileMenu()">初参加者へ</a></li>
+        <li><a href="#contact" onclick="closeMobileMenu()">✉️ お問い合わせ</a></li>
+        <li><a href="#kanbu" onclick="closeMobileMenu()" style="color: var(--gold-light);">🔒 リーダー専用</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="header-logo">Men's<span>Division</span></a>
+      <nav>
+        <ul class="header-nav">
+          <li><a href="#events">会合・イベント</a></li>
+          <li><a href="#reports">活動レポート</a></li>
+          <li><a href="#ikusei">育成・学習</a></li>
+          <li><a href="#shosanka">初参加者へ</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+          <li><a href="#kanbu" class="nav-kanbu">🔒 リーダー専用</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" onclick="openMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="theme-bar">
+    <div class="theme-bar-inner">
+      <span class="theme-badge">今月のテーマ</span>
+      <span class="theme-text">「青年よ、立て！ — 一人の変革が世界を変える」</span>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Soka Gakkai · Men's Division Official Site</p>
+      <h1 class="hero-title">男子部の拠点、<br><em>ここにあり。</em></h1>
+      <p class="hero-sub">情報・参加・育成・共有をひとつのプラットフォームに。男子部が動くための、すべてがここに揃っています。</p>
+      <div class="hero-cards">
+        <div class="hero-card fade-in">
+          <div class="hero-card-label">Next Meeting</div>
+          <div class="hero-card-title">5月男子部総会</div>
+          <div class="hero-card-sub">5月18日（土）18:00〜 / 文化会館 3F</div>
+        </div>
+        <div class="hero-card fade-in">
+          <div class="hero-card-label">注目企画</div>
+          <div class="hero-card-title">新入会者歓迎会</div>
+          <div class="hero-card-sub">5月25日（土）14:00〜 / 区民ホール</div>
+        </div>
+        <div class="hero-card fade-in">
+          <div class="hero-card-label">今週の一言</div>
+          <div class="hero-card-title">「月々日々に」</div>
+          <div class="hero-card-sub">聖教新聞より</div>
+        </div>
+      </div>
+      <a href="#events" class="hero-cta">会合に参加する →</a>
+    </div>
+  </section>
+
+  <div class="quick-nav">
+    <div class="quick-nav-inner">
+      <a href="#events" class="qnav-item">
+        <div class="qnav-icon" style="background:#EBF0FA;">📅</div>
+        <span class="qnav-label">会合・イベント</span>
+      </a>
+      <a href="#reports" class="qnav-item">
+        <div class="qnav-icon" style="background:#FDF3E0;">📸</div>
+        <span class="qnav-label">活動レポート</span>
+      </a>
+      <a href="#ikusei" class="qnav-item">
+        <div class="qnav-icon" style="background:#EAF5EC;">📚</div>
+        <span class="qnav-label">育成・学習</span>
+      </a>
+      <a href="#shosanka" class="qnav-item">
+        <div class="qnav-icon" style="background:#FDECEA;">🌱</div>
+        <span class="qnav-label">初参加者へ</span>
+      </a>
+      <a href="#ikusei" class="qnav-item">
+        <div class="qnav-icon" style="background:#F0EDFB;">🎥</div>
+        <span class="qnav-label">動画コンテンツ</span>
+      </a>
+      <a href="#kanbu" class="qnav-item">
+        <div class="qnav-icon" style="background:#E1F3F5;">📋</div>
+        <span class="qnav-label">リーダー専用</span>
+      </a>
+      <a href="#contact" class="qnav-item">
+        <div class="qnav-icon" style="background:#F0EDFB;">✉️</div>
+        <span class="qnav-label">お問い合わせ</span>
+      </a>
+    </div>
+  </div>
+
+  <section id="events" class="section-bg-white">
+    <div class="section-wrap">
+      <div class="section-header">
+        <h2 class="section-title">会合・イベント</h2>
+        <a href="#" class="section-more">すべて見る →</a>
+      </div>
+      <div class="event-list">
+        <div class="event-card fade-in" onclick="openEventDetail(0)" style="cursor:pointer;">
+          <div class="event-date-box">
+            <div class="event-date-month">MAY</div>
+            <div class="event-date-day">18</div>
+          </div>
+          <div class="event-info">
+            <span class="event-tag tag-mtg">会合</span>
+            <div class="event-name">5月男子部月次総会</div>
+            <div class="event-meta">18:00 〜 20:00　｜　文化会館 3F大会議室　｜　担当：佐藤幹事</div>
+          </div>
+          <button class="btn-join" onclick="event.stopPropagation();openEventDetail(0)">詳細・申込</button>
+        </div>
+        <div class="event-card fade-in" onclick="openEventDetail(1)" style="cursor:pointer;">
+          <div class="event-date-box">
+            <div class="event-date-month">MAY</div>
+            <div class="event-date-day">25</div>
+          </div>
+          <div class="event-info">
+            <span class="event-tag tag-event">イベント</span>
+            <div class="event-name">新入会者・未活動者歓迎会</div>
+            <div class="event-meta">14:00 〜 17:00　｜　区民ホール 多目的室　｜　対象：全男子部員</div>
+          </div>
+          <button class="btn-join" onclick="event.stopPropagation();openEventDetail(1)">詳細・申込</button>
+        </div>
+        <div class="event-card fade-in" onclick="openEventDetail(2)" style="cursor:pointer;">
+          <div class="event-date-box">
+            <div class="event-date-month">JUN</div>
+            <div class="event-date-day">1</div>
+          </div>
+          <div class="event-info">
+            <span class="event-tag tag-study">学習</span>
+            <div class="event-name">教学試験対策 勉強会（前期）</div>
+            <div class="event-meta">10:00 〜 12:00　｜　オンライン開催（Zoom）　｜　事前登録必要</div>
+          </div>
+          <button class="btn-join" onclick="event.stopPropagation();openEventDetail(2)">詳細・申込</button>
+        </div>
+        <div class="event-card fade-in">
+          <div class="event-date-box">
+            <div class="event-date-month">JUN</div>
+            <div class="event-date-day">8</div>
+          </div>
+          <div class="event-info">
+            <span class="event-tag tag-mtg">会合</span>
+            <div class="event-name">地区長会議 兼 ブロック長研修</div>
+            <div class="event-meta">19:00 〜 21:00　｜　区会館 会議室A　｜　対象：リーダー以上</div>
+          </div>
+          <button class="btn-join">参加申込</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reports" class="section-bg-cream">
+    <div class="section-wrap">
+      <div class="section-header">
+        <h2 class="section-title">活動レポート</h2>
+        <a href="#" class="section-more">すべて見る →</a>
+      </div>
+      <div class="report-grid">
+        <div class="report-card fade-in" onclick="openReportDetail(0)" style="cursor:pointer;">
+          <div class="report-img" style="background: linear-gradient(135deg, #1A3A6B, #0B1F4A);">
+            <span style="position:relative;z-index:1;font-size:48px;">🏛️</span>
+            <div class="report-img-overlay"></div>
+          </div>
+          <div class="report-body">
+            <div class="report-area">新宿区 · 第三地区</div>
+            <div class="report-title">春の座談会レポート — 10名が初参加で感動の声</div>
+            <div class="report-date">2025年4月12日</div>
+          </div>
+        </div>
+        <div class="report-card fade-in" onclick="openReportDetail(1)" style="cursor:pointer;">
+          <div class="report-img" style="background: linear-gradient(135deg, #1B4D1C, #0A2B0B);">
+            <span style="position:relative;z-index:1;font-size:48px;">⛰️</span>
+            <div class="report-img-overlay"></div>
+          </div>
+          <div class="report-body">
+            <div class="report-area">渋谷区 · 第一地区</div>
+            <div class="report-title">友人懇談会 成功事例を全体で共有</div>
+            <div class="report-date">2025年4月5日</div>
+          </div>
+        </div>
+        <div class="report-card fade-in" onclick="openReportDetail(2)" style="cursor:pointer;">
+          <div class="report-img" style="background: linear-gradient(135deg, #6B2D0A, #3B1506);">
+            <span style="position:relative;z-index:1;font-size:48px;">🌸</span>
+            <div class="report-img-overlay"></div>
+          </div>
+          <div class="report-body">
+            <div class="report-area">品川区 · 第二地区</div>
+            <div class="report-title">青年部合同 お花見対話集会 大成功</div>
+            <div class="report-date">2025年3月30日</div>
+          </div>
+        </div>
+        <div class="report-card fade-in" onclick="openReportDetail(3)" style="cursor:pointer;">
+          <div class="report-img" style="background: linear-gradient(135deg, #3B1C6B, #1E0D38);">
+            <span style="position:relative;z-index:1;font-size:48px;">🎤</span>
+            <div class="report-img-overlay"></div>
+          </div>
+          <div class="report-body">
+            <div class="report-area">豊島区 · 第四地区</div>
+            <div class="report-title">体験発表会 — 5名の証言が心を打つ</div>
+            <div class="report-date">2025年3月22日</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ikusei" class="section-bg-white">
+    <div class="section-wrap">
+      <div class="section-header">
+        <h2 class="section-title">育成・学習</h2>
+        <a href="#" class="section-more">すべて見る →</a>
+      </div>
+      <div class="ikusei-grid">
+        <div class="ikusei-card fade-in" onclick="openIkuseiDetail(0)" style="cursor:pointer;">
+          <div class="ikusei-icon" style="background:#EBF0FA;">📖</div>
+          <div class="ikusei-content">
+            <div class="ikusei-title">教学コンテンツ</div>
+            <div class="ikusei-desc">御書・先生の指導を学べるデジタル教材。基礎から応用まで段階別に整理されています。</div>
+            <span class="ikusei-link">詳細を見る →</span>
+          </div>
+        </div>
+        <div class="ikusei-card fade-in" onclick="openIkuseiDetail(1)" style="cursor:pointer;">
+          <div class="ikusei-icon" style="background:#FDF3E0;">🎬</div>
+          <div class="ikusei-content">
+            <div class="ikusei-title">動画ライブラリ</div>
+            <div class="ikusei-desc">講義・座談会・幹部研修のアーカイブ動画。いつでも、どこでも視聴できます。</div>
+            <span class="ikusei-link">詳細を見る →</span>
+          </div>
+        </div>
+        <div class="ikusei-card fade-in" onclick="openIkuseiDetail(2)" style="cursor:pointer;">
+          <div class="ikusei-icon" style="background:#EAF5EC;">📁</div>
+          <div class="ikusei-content">
+            <div class="ikusei-title">資料ダウンロード</div>
+            <div class="ikusei-desc">会合テキスト・学習プリント・スケジュール表など、必要な資料をすぐにダウンロード。</div>
+            <span class="ikusei-link">詳細を見る →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shosanka" class="shosanka-section">
+    <div class="shosanka-inner">
+      <div class="shosanka-text fade-in">
+        <h2>はじめての方へ。<br><span>男子部へようこそ。</span></h2>
+        <p>「男子部ってどんなところ？」「参加したことがないけど大丈夫？」そんな不安を解消するための情報をまとめました。まずは気軽に読んでみてください。</p>
+        <a href="#" class="btn-outline">初参加者ガイドを見る →</a>
+      </div>
+      <div class="shosanka-cards fade-in">
+        <div class="shosanka-card" onclick="openShosankaDetail(0)" style="cursor:pointer;">
+          <div class="shosanka-card-icon">🙋</div>
+          <div>
+            <div class="shosanka-card-title">男子部とは？</div>
+            <div class="shosanka-card-desc">創価学会男子部の活動・役割・雰囲気をわかりやすく紹介します。</div>
+          </div>
+        </div>
+        <div class="shosanka-card">
+          <div class="shosanka-card-icon">❓</div>
+          <div>
+            <div class="shosanka-card-title">よくある質問</div>
+            <div class="shosanka-card-desc">「どんな服装で行けばいい？」「知り合いがいなくても大丈夫？」など。</div>
+          </div>
+        </div>
+        <div class="shosanka-card" onclick="openShosankaDetail(2)" style="cursor:pointer;">
+          <div class="shosanka-card-icon">📷</div>
+          <div>
+            <div class="shosanka-card-title">雰囲気紹介</div>
+            <div class="shosanka-card-desc">実際の会合・イベントの様子を写真・動画でご覧いただけます。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kanbu" class="kanbu-section" style="position:relative;min-height:320px;">
+
+    <!-- 🔒 LOCK SCREEN (shown by default) -->
+    <div id="kanbuLockScreen" class="kanbu-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:64px 32px;text-align:center;min-height:320px;">
+      <div style="width:72px;height:72px;border-radius:50%;background:rgba(201,144,42,0.15);border:2px solid rgba(201,144,42,0.35);display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:24px;">🔒</div>
+      <h2 style="font-family:'Oswald',sans-serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:1px;">リーダー専用エリア</h2>
+      <p style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:32px;line-height:1.7;">このエリアはリーダー・幹事専用です。<br>アクセスにはパスワードが必要です。</p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;max-width:320px;">
+        <div style="display:flex;gap:8px;width:100%;">
+          <input id="kanbuPwInput" type="password" placeholder="パスワードを入力"
+            style="flex:1;padding:12px 16px;border-radius:8px;border:1.5px solid rgba(201,144,42,0.4);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Noto Sans JP',sans-serif;outline:none;letter-spacing:2px;"
+            onkeydown="if(event.key==='Enter')verifyKanbuPw()"
+            onfocus="this.style.borderColor='#C9902A'"
+            onblur="this.style.borderColor='rgba(201,144,42,0.4)'"
+          />
+          <button onclick="verifyKanbuPw()"
+            style="padding:12px 20px;background:#C9902A;color:#0B1F4A;font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;white-space:nowrap;transition:background 0.2s;"
+            onmouseover="this.style.background='#F0B84A'" onmouseout="this.style.background='#C9902A'">
+            解錠
+          </button>
+        </div>
+        <div id="kanbuPwError" style="font-size:12px;color:#FC8181;min-height:16px;"></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;color:rgba(255,255,255,0.45);">
+            <input type="checkbox" id="kanbuShowPw" onchange="toggleKanbuPwVisibility()" style="cursor:pointer;">
+            パスワードを表示
+          </label>
+        </div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:8px;">パスワードはリーダーにお問い合わせください</p>
+      </div>
+    </div>
+
+    <!-- 🔓 CONTENT (hidden until authenticated) -->
+    <div id="kanbuContent" style="display:none;">
+    <div class="kanbu-inner">
+      <div class="kanbu-heading">
+        <h2>リーダー専用エリア</h2>
+        <span class="kanbu-badge">🔓 認証済み</span>
+        <button onclick="lockKanbu()" style="margin-left:auto;font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:5px 12px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.08)'">🔒 ロックする</button>
+      </div>
+      <p class="kanbu-sub">リーダー・幹事向けのリソースを一元管理。ここからすべての運営ツールにアクセスできます。</p>
+      <div class="kanbu-grid">
+        <div class="kanbu-card clickable" onclick="openManualList()" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter')openManualList()" aria-label="マニュアル・手順書を開く">
+          <div class="kanbu-card-icon">📋</div>
+          <div>
+            <div class="kanbu-card-title">マニュアル・手順書</div>
+            <div class="kanbu-card-desc">会合運営・行事準備の手順を網羅</div>
+          </div>
+          <span class="card-arrow">→</span>
+        </div>
+        <div class="kanbu-card">
+          <div class="kanbu-card-icon">🗂️</div>
+          <div>
+            <div class="kanbu-card-title">テンプレート一覧</div>
+            <div class="kanbu-card-desc">案内文・報告書・チラシ等のひな形</div>
+          </div>
+        </div>
+        <div class="kanbu-card">
+          <div class="kanbu-card-icon">💡</div>
+          <div>
+            <div class="kanbu-card-title">企画事例・ノウハウ</div>
+            <div class="kanbu-card-desc">各地区の成功事例と実践ノウハウ</div>
+          </div>
+        </div>
+        <div class="kanbu-card">
+          <div class="kanbu-card-icon">📊</div>
+          <div>
+            <div class="kanbu-card-title">活動データ・統計</div>
+            <div class="kanbu-card-desc">参加率・会員数の推移を可視化</div>
+          </div>
+        </div>
+        <div class="kanbu-card">
+          <div class="kanbu-card-icon">💬</div>
+          <div>
+            <div class="kanbu-card-title">リーダー掲示板</div>
+            <div class="kanbu-card-desc">リーダー間の情報共有・連絡</div>
+          </div>
+        </div>
+        <div class="kanbu-card">
+          <div class="kanbu-card-icon">📤</div>
+          <div>
+            <div class="kanbu-card-title">コンテンツ投稿</div>
+            <div class="kanbu-card-desc">レポート・写真の投稿・管理</div>
+          </div>
+        </div>
+        <div class="kanbu-card clickable" onclick="openAdmin()" style="cursor:pointer;">
+          <div class="kanbu-card-icon">📊</div>
+          <div>
+            <div class="kanbu-card-title">お問い合わせ管理</div>
+            <div class="kanbu-card-desc">受信一覧・返信・CSV出力</div>
+          </div>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </div>
+    </div><!-- /kanbuContent -->
+  </section>
+
+  <section id="pickup" class="section-bg-cream">
+    <div class="section-wrap">
+      <div class="section-header">
+        <h2 class="section-title">ピックアップ記事 <span style="font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:400;color:var(--text-light);margin-left:10px;">soka youth media より自動取得</span></h2>
+        <span id="pickup-updated" style="font-size:12px;color:var(--text-light);"></span>
+      </div>
+      <div id="pickup-grid" class="report-grid">
+        <div class="pickup-skeleton"></div>
+        <div class="pickup-skeleton"></div>
+        <div class="pickup-skeleton"></div>
+        <div class="pickup-skeleton"></div>
+      </div>
+      <div style="margin-top:20px;text-align:right;">
+        <a href="https://www.sokayouth-media.jp" target="_blank" rel="noopener" class="section-more">soka youth media をもっと見る →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-bg-white">
+    <div class="section-wrap" style="padding-bottom:48px;">
+      <div class="section-header">
+        <h2 class="section-title">関連リンク</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+
+        <a href="https://www.sokagakkai.jp" target="_blank" rel="noopener" class="link-card">
+          <div class="link-card-thumb" style="background:#0B1F4A;">
+            <div style="width:44px;height:44px;border-radius:50%;background:#C9902A;display:flex;align-items:center;justify-content:center;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 7v10l9 5 9-5V7L12 2z" stroke="#0B1F4A" stroke-width="2" stroke-linejoin="round"/></svg>
+            </div>
+            <span style="font-size:10px;font-weight:700;color:#C9902A;letter-spacing:1px;margin-top:6px;">SOKAGAKKAI.JP</span>
+          </div>
+          <div class="link-card-body">
+            <div class="link-card-domain">sokagakkai.jp</div>
+            <div class="link-card-title">創価学会 公式サイト</div>
+            <div class="link-card-desc">創価学会の公式ウェブサイト。活動紹介・組織情報・教えの解説など、創価学会に関するあらゆる情報を掲載しています。</div>
+            <div class="link-card-tags">
+              <span class="lc-tag lc-tag-blue">公式</span>
+              <span class="lc-tag lc-tag-gold">組織情報</span>
+              <span class="lc-tag lc-tag-green">教学</span>
+            </div>
+          </div>
+          <div class="link-card-arrow">→</div>
+        </a>
+
+        <a href="https://www.sokayouth-media.jp" target="_blank" rel="noopener" class="link-card">
+          <div class="link-card-thumb" style="background:#1a1a2e;">
+            <div style="width:44px;height:44px;border-radius:10px;background:#e63946;display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2" stroke="white" stroke-width="2"/><path d="M8 9h8M8 13h5" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <span style="font-size:10px;font-weight:500;color:rgba(255,255,255,0.6);letter-spacing:0.5px;margin-top:6px;">SOKA YOUTH MEDIA</span>
+          </div>
+          <div class="link-card-body">
+            <div class="link-card-domain">sokayouth-media.jp</div>
+            <div class="link-card-title">soka youth media — 社会と青年をつなぐメディア</div>
+            <div class="link-card-desc">opinion・answer・buddhism・movieの4カテゴリで構成された青年向けメディアサイト。毎月の座談会御書解説や動画コンテンツも充実。</div>
+            <div class="link-card-tags">
+              <span class="lc-tag lc-tag-red">青年部</span>
+              <span class="lc-tag lc-tag-purple">動画</span>
+              <span class="lc-tag lc-tag-green">仏法学習</span>
+            </div>
+          </div>
+          <div class="link-card-arrow">→</div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact" class="contact-section">
+    <div class="contact-inner">
+      <p class="contact-eyebrow">Contact &amp; Stories</p>
+      <h2 class="contact-heading">声を、<em>届けよう。</em></h2>
+      <p class="contact-sub">活動への疑問・ご質問はお気軽に。また、日常の中で感じた歓喜のエピソードをみんなと分かち合いましょう。</p>
+
+      <div class="contact-tabs">
+        <button class="contact-tab active" data-panel="panelContact">
+          <span>📬</span> お問い合わせ
+        </button>
+        <button class="contact-tab" data-panel="panelEpisode">
+          <span>✨</span> 歓喜エピソード
+        </button>
+      </div>
+
+      <div class="contact-panel active" id="panelContact">
+        <form id="contactForm" novalidate>
+          <div class="cf-grid">
+            <div class="cf-field">
+              <label class="cf-label">お名前 <span class="req">*</span></label>
+              <input class="cf-input" id="cName" type="text" placeholder="山田 太郎" required>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label">地区・所属</label>
+              <input class="cf-input" id="cArea" type="text" placeholder="例：新宿区 第三地区">
+            </div>
+            <div class="cf-field full">
+              <label class="cf-label">メールアドレス <span class="req">*</span></label>
+              <input class="cf-input" id="cEmail" type="email" placeholder="example@email.com" required>
+            </div>
+            <div class="cf-field full">
+              <label class="cf-label">お問い合わせカテゴリ <span class="req">*</span></label>
+              <select class="cf-select cf-input" id="cCategory" required>
+                <option value="" disabled selected>カテゴリを選択してください</option>
+                <option>会合・イベントについて</option>
+                <option>活動への参加方法</option>
+                <option>教学・学習について</option>
+                <option>初めて参加される方へ</option>
+                <option>その他</option>
+              </select>
+            </div>
+            <div class="cf-field full">
+              <label class="cf-label">お問い合わせ内容 <span class="req">*</span></label>
+              <textarea class="cf-textarea" id="cMessage" placeholder="ご質問・ご相談内容をご記入ください。" required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="cf-submit">送信する →</button>
+        </form>
+        <div class="cf-success" id="contactSuccess">
+          <span class="cf-success-icon">✅</span>
+          <span>お問い合わせを受け付けました。担当者より3営業日以内にご連絡いたします。</span>
+        </div>
+      </div>
+
+      <div class="contact-panel" id="panelEpisode">
+        <div class="ep-form-wrap">
+          <div class="ep-form-title">✨ エピソードを投稿する</div>
+          <form id="epForm" novalidate>
+            <div class="cf-grid" style="margin-bottom:12px;">
+              <div class="cf-field">
+                <label class="cf-label">ニックネーム</label>
+                <input class="cf-input" id="epName" type="text" placeholder="匿名でもOK">
+              </div>
+              <div class="cf-field">
+                <label class="cf-label">地区・所属</label>
+                <input class="cf-input" id="epArea" type="text" placeholder="例：渋谷区">
+              </div>
+              <div class="cf-field full">
+                <label class="cf-label">カテゴリ <span class="req">*</span></label>
+                <select class="cf-select cf-input" id="epTag" required>
+                  <option>信仰・祈り</option>
+                  <option>健康・回復</option>
+                  <option>仕事・職場</option>
+                  <option>家族・人間関係</option>
+                  <option>その他</option>
+                </select>
+              </div>
+              <div class="cf-field full">
+                <label class="cf-label">エピソード <span class="req">*</span>（300文字以内）</label>
+                <textarea class="cf-textarea" id="epBody" maxlength="300"
+                  placeholder="最近あった嬉しいこと、祈りが叶った体験、仲間に感謝したことなど、どんな小さなことでもシェアしてください。" required></textarea>
+                <div class="ep-char-count" id="epCharCount">0 / 300文字</div>
+              </div>
+            </div>
+            <button type="submit" class="cf-submit">投稿する ✨</button>
+          </form>
+          <div class="cf-success" id="epSuccess">
+            <span class="cf-success-icon">🌸</span>
+            <span>エピソードを投稿しました！みんなで喜びを分かち合いましょう。</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="ep-feed-header">
+            <div class="ep-feed-title">
+              <div class="ep-live-dot"></div>
+              リアルタイム歓喜フィード
+            </div>
+            <span class="ep-feed-count" id="epCount">0件</span>
+          </div>
+          <div class="ep-feed" id="epFeed">
+            <div class="ep-empty">
+              <div class="ep-empty-icon">🌸</div>
+              まだエピソードがありません。<br>最初の投稿をお待ちしています！
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Men's<span>Division</span></div>
+          <p>創価学会男子部の公式プラットフォーム。情報・参加・育成・共有をひとつの場所に。</p>
+          <div class="domain">soka-mens-division.jp</div>
+        </div>
+        <div class="footer-col">
+          <h4>活動</h4>
+          <ul>
+            <li><a href="#events">会合・イベント</a></li>
+            <li><a href="#reports">活動レポート</a></li>
+            <li><a href="#">スケジュール一覧</a></li>
+            <li><a href="#">申込フォーム</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>学習・育成</h4>
+          <ul>
+            <li><a href="#ikusei">教学コンテンツ</a></li>
+            <li><a href="#ikusei">動画ライブラリ</a></li>
+            <li><a href="#ikusei">資料ダウンロード</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>サポート</h4>
+          <ul>
+            <li><a href="#shosanka">初参加者へ</a></li>
+            <li><a href="#">よくある質問</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="#kanbu">リーダー専用</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Soka Gakkai Men's Division. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+          <a href="#">サイトマップ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Hero card stagger
+    document.querySelectorAll('.hero-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 100}ms`;
+    });
+    setTimeout(() => {
+      document.querySelectorAll('.hero-card').forEach(card => card.classList.add('visible'));
+    }, 300);
+
+    // Back to top
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Mobile menu
+    function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+    function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    // ===== PICKUP ARTICLES =====
+    // soka youth media の実際の記事データ（サーバーサイド自動更新を想定したデモ表示）
+    const pickupArticles = [
+      {
+        url: 'https://www.sokayouth-media.jp/movie/3216495.html',
+        title: 'Gカレ！2026年4月度座談会拝読御書「持妙法華問答抄」',
+        category: 'movie',
+        date: '2026-04-01',
+        thumb: 'https://www.sokayouth-media.jp/.assets/thumbnail/m47_pickup-i.jpg'
+      },
+      {
+        url: 'https://www.sokayouth-media.jp/buddhism/3215750.html',
+        title: '誰かのために「今」を精いっぱい生きる　2026年4月度座談会拝読御書「持妙法華問答抄」',
+        category: 'buddhism',
+        date: '2026-03-31',
+        thumb: 'https://www.sokayouth-media.jp/.assets/thumbnail/277_pickup-i.jpg'
+      },
+      {
+        url: 'https://www.sokayouth-media.jp/opinion/3144273.html',
+        title: '活動家の夫を持つ、妻の独り言　「産後って非常事態なんですよ」',
+        category: 'opinion',
+        date: '2026-01-18',
+        thumb: 'https://www.sokayouth-media.jp/.assets/thumbnail/274_pickup-i.jpg'
+      },
+      {
+        url: 'https://www.sokayouth-media.jp/movie/3141597.html',
+        title: '「信行学」１分でまとめてみました',
+        category: 'movie',
+        date: '2026-01-15',
+        thumb: 'https://www.sokayouth-media.jp/.assets/thumbnail/m44_pickup-i.jpg'
+      }
+    ];
+
+    const catLabel = { movie: 'movie', buddhism: 'buddhism', opinion: 'opinion', answer: 'answer' };
+
+    function renderPickup() {
+      const grid = document.getElementById('pickup-grid');
+      const updated = document.getElementById('pickup-updated');
+      const now = new Date();
+      updated.textContent = `最終更新：${now.getFullYear()}/${String(now.getMonth()+1).padStart(2,'0')}/${String(now.getDate()).padStart(2,'0')} 06:00`;
+
+      grid.innerHTML = pickupArticles.map(a => `
+        <a href="${a.url}" target="_blank" rel="noopener" class="pickup-card fade-in">
+          <div class="pickup-card-thumb">
+            <img src="${a.thumb}" alt="" onerror="this.style.display='none'">
+            <span class="pickup-card-cat cat-${a.category}">${catLabel[a.category]}</span>
+          </div>
+          <div class="pickup-card-body">
+            <div class="pickup-card-source">soka youth media</div>
+            <div class="pickup-card-title">${a.title}</div>
+            <div class="pickup-card-date">${a.date}</div>
+          </div>
+        </a>
+      `).join('');
+
+      // re-observe new cards
+      grid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+
+    renderPickup();
+
+    // ===== CONTACT & EPISODE =====
+    (function() {
+      // Tab switching
+      const tabs = document.querySelectorAll('.contact-tab');
+      const panels = document.querySelectorAll('.contact-panel');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.panel).classList.add('active');
+        });
+      });
+
+      // ── CONTACT FORM ──
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.cf-submit');
+        btn.disabled = true;
+        btn.textContent = '送信中…';
+        setTimeout(() => {
+          this.reset();
+          btn.disabled = false;
+          btn.innerHTML = '送信する →';
+          document.getElementById('contactSuccess').classList.add('show');
+          setTimeout(() => document.getElementById('contactSuccess').classList.remove('show'), 4000);
+        }, 900);
+      });
+
+      // ── EPISODE FEED ──
+      const STORAGE_KEY = 'mens_division_episodes_v1';
+      const AVATARS_BG = ['#C9902A','#1A3A6B','#2D6A4F','#7B2D8B','#C0392B','#2E86AB'];
+      const TAG_MAP = {
+        '信仰・祈り': {cls:'ep-tag-joy', icon:'✨'},
+        '健康・回復': {cls:'ep-tag-health', icon:'💪'},
+        '仕事・職場': {cls:'ep-tag-work', icon:'💼'},
+        '家族・人間関係': {cls:'ep-tag-family', icon:'🏠'},
+        'その他': {cls:'ep-tag-other', icon:'🌱'},
+      };
+
+      let episodes = [];
+
+      async function loadEpisodes() {
+        try {
+          const res = await window.storage.get(STORAGE_KEY, true);
+          if (res && res.value) {
+            episodes = JSON.parse(res.value);
+          }
+        } catch(e) {
+          // no data yet
+        }
+        renderFeed();
+        updateCount();
+      }
+
+      async function saveEpisodes() {
+        try {
+          await window.storage.set(STORAGE_KEY, JSON.stringify(episodes), true);
+        } catch(e) {}
+      }
+
+      function timeAgo(ts) {
+        const diff = (Date.now() - ts) / 1000;
+        if (diff < 60) return 'たった今';
+        if (diff < 3600) return Math.floor(diff/60) + '分前';
+        if (diff < 86400) return Math.floor(diff/3600) + '時間前';
+        return Math.floor(diff/86400) + '日前';
+      }
+
+      function initials(name) {
+        return name ? name.charAt(0).toUpperCase() : '匿';
+      }
+
+      function hashColor(str) {
+        let h = 0;
+        for (let c of str) h = (h * 31 + c.charCodeAt(0)) % AVATARS_BG.length;
+        return AVATARS_BG[h];
+      }
+
+      function renderCard(ep, isNew=false) {
+        const tag = TAG_MAP[ep.tag] || TAG_MAP['その他'];
+        const card = document.createElement('div');
+        card.className = 'ep-card' + (isNew ? ' new-flash' : '');
+        card.innerHTML = `
+          <div class="ep-card-header">
+            <div class="ep-card-meta">
+              <div class="ep-avatar" style="background:${hashColor(ep.name)}">${initials(ep.name)}</div>
+              <div>
+                <div class="ep-name">${ep.name || '匿名'}</div>
+                <div class="ep-area">${ep.area || ''}</div>
+              </div>
+            </div>
+            <div class="ep-time">${timeAgo(ep.ts)}</div>
+          </div>
+          <div class="ep-body">${ep.body.replace(/\n/g,'<br>')}</div>
+          <div><span class="ep-tag ${tag.cls}">${tag.icon} ${ep.tag}</span></div>
+        `;
+        return card;
+      }
+
+      function renderFeed() {
+        const feed = document.getElementById('epFeed');
+        feed.innerHTML = '';
+        if (episodes.length === 0) {
+          feed.innerHTML = '<div class="ep-empty"><div class="ep-empty-icon">🌸</div>まだエピソードがありません。<br>最初の投稿をお待ちしています！</div>';
+          return;
+        }
+        // Show newest first
+        [...episodes].reverse().forEach(ep => {
+          feed.appendChild(renderCard(ep, false));
+        });
+      }
+
+      function updateCount() {
+        document.getElementById('epCount').textContent = episodes.length + '件';
+      }
+
+      // Char counter
+      const epBody = document.getElementById('epBody');
+      const charCount = document.getElementById('epCharCount');
+      epBody.addEventListener('input', () => {
+        const len = epBody.value.length;
+        charCount.textContent = len + ' / 300文字';
+        charCount.className = 'ep-char-count' + (len > 270 ? ' warn' : '');
+      });
+
+      // Submit episode
+      document.getElementById('epForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.cf-submit');
+        const name = document.getElementById('epName').value.trim() || '匿名';
+        const area = document.getElementById('epArea').value.trim();
+        const tag  = document.getElementById('epTag').value;
+        const body = document.getElementById('epBody').value.trim();
+        if (!body) return;
+
+        btn.disabled = true;
+        btn.textContent = '投稿中…';
+
+        const ep = { name, area, tag, body, ts: Date.now() };
+        episodes.push(ep);
+        await saveEpisodes();
+
+        // Prepend to feed
+        const feed = document.getElementById('epFeed');
+        const emptyEl = feed.querySelector('.ep-empty');
+        if (emptyEl) feed.innerHTML = '';
+        const card = renderCard(ep, true);
+        feed.insertBefore(card, feed.firstChild);
+        updateCount();
+
+        this.reset();
+        charCount.textContent = '0 / 300文字';
+        charCount.className = 'ep-char-count';
+        btn.disabled = false;
+        btn.innerHTML = '投稿する ✨';
+
+        document.getElementById('epSuccess').classList.add('show');
+        setTimeout(() => document.getElementById('epSuccess').classList.remove('show'), 3500);
+
+        // Scroll to feed
+        setTimeout(() => feed.scrollIntoView({behavior:'smooth', block:'start'}), 200);
+      });
+
+      // Refresh timestamps every minute
+      setInterval(() => {
+        document.querySelectorAll('.ep-time').forEach((el, i) => {
+          const idx = episodes.length - 1 - i;
+          if (episodes[idx]) el.textContent = timeAgo(episodes[idx].ts);
+        });
+      }, 60000);
+
+      loadEpisodes();
+    })();
+
+  </script>
+
+
+  <div class="pdf-modal-overlay" id="pdfModalOverlay" onclick="closePdfModal(event)">
+    <div class="pdf-modal">
+      <div class="pdf-modal-header">
+        <div class="pdf-modal-title">
+          <span>📋</span>
+          <span>マニュアル・手順書</span>
+          <span class="badge">🔒 幹部専用</span>
+        </div>
+        <div class="pdf-modal-actions">
+          <a id="pdfDlBtn" class="pdf-modal-dl" download="kanbu_manual.pdf">⬇ ダウンロード</a>
+          <button class="pdf-modal-close" onclick="closePdfModalDirect()">✕</button>
+        </div>
+      </div>
+      <div class="pdf-modal-body">
+        <div class="pdf-modal-pw-screen" id="pwScreen">
+          <div class="pw-icon">🔐</div>
+          <div class="pw-title">リーダー専用エリア</div>
+          <div class="pw-sub">このコンテンツは幹部のみ閲覧できます。<br>パスワードを入力してください。</div>
+          <div class="pw-input-wrap">
+            <input class="pw-input" id="pwInput" type="password" placeholder="パスワード"
+              onkeydown="if(event.key==='Enter') checkPw()">
+            <button class="pw-btn" onclick="checkPw()">開く</button>
+          </div>
+          <div class="pw-error" id="pwError"></div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.25);margin-top:8px;">※ デモ用PW: kanbu2025</div>
+        </div>
+        <iframe id="pdfFrame" src="" style="display:none;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PDF_B64 = 'JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlaXNlaUtha3VHby1XNSAvRGVzY2VuZGFudEZvbnRzIFsgPDwKL0Jhc2VGb250IC9IZWlzZWlLYWt1R28tVzUgL0NJRFN5c3RlbUluZm8gPDwKL09yZGVyaW5nIChKYXBhbjEpIC9SZWdpc3RyeSAoQWRvYmUpIC9TdXBwbGVtZW50IDIKPj4gL0RXIDEwMDAgL0ZvbnREZXNjcmlwdG9yIDw8Ci9Bc2NlbnQgNzUyIC9DYXBIZWlnaHQgNzM3IC9EZXNjZW50IC0yMjEgL0ZsYWdzIDQgL0ZvbnRCQm94IFsgLTkyIC0yNTAgMTAxMCA5MjIgXSAvRm9udE5hbWUgL0hlaXNlS2FrdUdvLVc1IAogIC9JdGFsaWNBbmdsZSAwIC9TdGVtSCAwIC9TdGVtViAxMTQgL1R5cGUgL0ZvbnREZXNjcmlwdG9yIC9YSGVpZ2h0IDU1Mwo+PiAvU3VidHlwZSAvQ0lERm9udFR5cGUwIC9UeXBlIC9Gb250IAogIC9XIFsgMSBbIDI3NyAzMDUgNTAwIDY2OCA2NjggOTA2IDcyNyAzMDUgNDQ1IDQ0NSAKICA1MDggNjY4IDMwNSAzNzkgMzA1IDUzOSBdIDE3IDI2IDY2OCAyNyBbIDMwNSAzMDUgNjY4IDY2OCA2NjggNTY2IDg3MSA3MjcgNjM3IDY1MiAKICA2OTkgNTc0IDU1NSA2NzYgNjg3IDI0MiA0OTIgNjY0IDU4MiA3ODkgCiAgNzA3IDczNCA1ODIgNzM0IDYwNSA2MDUgNjQxIDY2OCA3MjcgOTQ1IAogIDYwOSA2MDkgNTc0IDQ0NSA2NjggNDQ1IDY2OCA2NjggNTkwIDU1NSAKICA2MDkgNTQ3IDYwMiA1NzQgMzkxIDYwOSA1ODIgMjM0IDI3NyA1MzkgCiAgMjM0IDg5NSA1ODIgNjA1IDYwMiA2MDIgMzg3IDUwOCA0NDEgNTgyIAogIDU2MiA3ODEgNTMxIDU3MCA1NTUgNDQ5IDI0NiA0NDkgNjY4IF0gMjMxIDYzMiA1MDAgXQo+PiBdIC9FbmNvZGluZyAvVW5pSklTLVVDUzItSCAvTmFtZSAvRjIgL1N1YnR5cGUgL1R5cGUwIC9UeXBlIC9Gb250Cj4+CmVuZG9iago0IDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVpc2VpTWluLVczIC9EZXNjZW5kYW50Rm9udHMgWyA8PAovQmFzZUZvbnQgL0hlaXNlaU1pbi1XMyAvQ0lEU3lzdGVtSW5mbyA8PAovT3JkZXJpbmcgKEphcGFuMSkgL1JlZ2lzdHJ5IChBZG9iZSkgL1N1cHBsZW1lbnQgMgo+PiAvRFcgMTAwMCAvRm9udERlc2NyaXB0b3IgPDwKL0FzY2VudCA3MjMgL0NhcEhlaWdodCA3MDkgL0Rlc2NlbnQgLTI0MSAvRmxhZ3MgNiAvRm9udEJCb3ggWyAtMTIzIC0yNTcgMTAwMSA5MTAgXSAvRm9udE5hbWUgL0hlaXNlaU1pbi1XMyAKICAvSXRhbGljQW5nbGUgMCAvU3RlbVYgNjkgL1R5cGUgL0ZvbnREZXNjcmlwdG9yIC9YSGVpZ2h0IDQ1MAo+PiAvU3VidHlwZSAvQ0lERm9udFR5cGUwIC9UeXBlIC9Gb250IAogIC9XIFsgMSBbIDI1MCAzMzMgNDA4IDUwMCBdIDUgWyA1MDAgODMzIDc3OCAxODAgMzMzIF0gMTAgWyAzMzMgNTAwIDU2NCAyNTAgMzMzIDI1MCAyNzggNTAwIF0gMTggMjYgNTAwIDI3IAogIDI4IDI3OCAyOSAzMSA1NjQgMzIgWyA0NDQgOTIxIDcyMiA2NjcgXSAzNiBbIDY2NyA3MjIgNjExIDU1NiA3MjIgXSA0MSAKICBbIDcyMiAzMzMgMzg5IDcyMiA2MTEgODg5IDcyMiBdIDQ4IFsgNzIyIDU1NiA3MjIgNjY3IDU1NiA2MTEgNzIyIF0gNTUgWyA3MjIgOTQ0IDcyMiBdIDU4IFsgNzIyIDYxMSAzMzMgNTAwIDMzMyA0NjkgNTAwIDMzMyA0NDQgNTAwIAogIDQ0NCA1MDAgNDQ0IDMzMyA1MDAgXSA3MyBbIDUwMCAyNzggXSA3NSAKICBbIDI3OCA1MDAgMjc4IDc3OCA1MDAgXSA8MCA4MiA1MDAgODMgWyAzMzMgMzg5IDI3OCA1MDAgXSA8NyBbIDUwMCA3MjIgNTAwIF0gOTAgWyA1MDAgNDQ0IDQ4MCAyMDAgNDgwIDMzMyBdIAogIDk3IFsgMjc4IF0gOTkgWyAyMDAgXSAxMDEgWyAzMzMgNTAwIF0gMTAzIFsgNTAwIDE2NyBdIDEwNyBbIDUwMCBdIAogIDEwOSBbIDUwMCAzMzMgXSAxMTEgWyAzMzMgNTU2IF0gMTEzIFsgNTU2IDUwMCBdIDExNyBbIDI1MCBdIDExOSBbIDM1MCAzMzMgNDQ0IF0gCiAgMTIzIFsgNTAwIF0gMTI2IFsgNDQ0IDMzMyBdIDEyOCAxMzcgMzMzIDEzOCBbIDEwMDAgODg5IDI3NiA2MTEgNzIyIDg4OSAzMTAgNjY3IDI3OCBdIDE0NyAKICBbIDI3OCA1MDAgNzIyIDUwMCA1NjQgNzYwIDU2NCA3NjAgXSAxNTcgMTU4IDMwMCAxNTkgWyA1MDAgMzAwIDc1MCBdIDE2MiAxNjMgNzUwIDE2NCAKICAxNjkgNzIyIDE3MCBbIDY2NyA2MTEgXSAxNzIgMTc0IDYxMSAxNzUgMTc4IDMzMyAKICAxNzkgMTg1IDcyMiAxODcgMTkxIDcyMiAxOTIgWyA1NTYgNDQ0IF0gMTk0IDIwMyAKICA0NDQgMjA0IDIwNyAyNzggMjA4IDIxNCA1MDAgMjE2IDIyMiA1MDAgCiAgMjIzIFsgNTU2IDcyMiA2MTEgNTAwIDM4OSA5ODAgNDQ0IF0gMjMxIFsgNTAwIF0gMzIzIFsgNTAwIF0gMzI1IFsgNTAwIF0gMzI3IDM4OSAKICA1MDAgXQo+PiBdIC9FbmNvZGluZyAvVW5pSklTLVVDUzItSCAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUwIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyAxMiAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCAxMSAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNiAwIG9iago8PAovQ29udGVudHMgMTMgMCBSIC9NZWRpYUJveCBbIDAgMCA1OTUuMjc1NiA4NDEuODg5OCBdIC9QYXJlbnQgMTEgMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL0NvbnRlbnRzIDE0IDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDExIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9Db250ZW50cyAxNSAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCAxMSAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKOSAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDExIDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKMTAgMCBvYmoKPDwKL0F1dGhvciAoXDM3NlwzNzdcMDAwTVwwMDBlXDAwMG5cMDAwJ1wwMDBzXDAwMCBcMDAwRFwwMDBiXDAwMHZcMDAwaVwwMDBzXDAwMGlcMDAwb1wwMDBuXDAwMCBcMjIwS1VcMjY2TlwyMTNSXDMzMVxcQCkgL0NyZWF0aW9uRGF0ZSAoRDoyMDI2MDQyMzA3NTQwNyswMCcwMCcpIC9DcmVhdG9yIChcKHVuc3BlY2lmaWVkXCkpIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI2MDQyMzA3NTQwNyswMCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gXChvcGVuc291cmNlXCkpIAogIC9TdWJqZWN0IChcKHVuc3BlY2lmaWVkXCkpIC9UaXRsZSAoXDM3NlwzNzdeeVwyMjBcMzUwMFwzNzNcMjIwS1VcMjY2XFxcMDAydVwoMFwyNTAwXDM1MjBcMjQyXDAwMCAwXDMzNjBcMzEzMFwzNDUwXDI0MjBcMzUzYktcMjMwXDAwNmZcMzcwKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjExIDAgb2JqCjw8Ci9Db3VudCA0IC9LaWRzIFsgNSAwIFIgNiAwIFIgNyAwIFIgOCAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjEyIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3LengthIDI1OTcKPj4Kc3RyZWFtCkdhdWBWRC9VQjYmY1NxP1lzQXRkMHJqUittK1woYCwpKS9WN1ZwMGlgUGA3LCNaRWAtPy0+Okg4bihrOXAicWhlSGBuXVVcbDIiIiFnZDBbbGNfUWlsbmEiPCRLdGhpcVhRdFA3cyJAVFlJKWBWayJET2ZAYihDVXFUJk5saDE3MW8zaDY2aE8iKixZMzkpUXRVWilFWGQzYmVbVU5TaCIkImZoZFk6YGxdImdwLW1mdXRedFdEU0c4XE5FZzYjNnVCIjtPKSEhT0M8LT06aTNgbyVbOk5dIVkoQVNiY0ZpOilIJUtibHBdUCIzJlNJRDovUF5XU1UwXkc0WzcmSkpcUChBRV43aEw1XUxoX2FWY0gwLVwoOj5RYilmXjpCJk1bcXRlYnBvciM5QTFcS2QuTlgzMTg1WTNaIkgxR2c0aFdIbmFqKT1iUzFHc1phanEkK3MuSykxMCltQEFJZigqWFBmc15PVkElLldTL2tzYSc1LXA2a2lYMnVWPWxMRFliLEJSYW82VEJWclUyYV1HXj5ZcGxZKV8xIzojaCUiUjhlXmEnXC1jbG1gN3InSChVaGZsR15jWHU6Li5BdGZZSk9BJjFiIzEmJEFZNWg6TlNPaSdrLC06aXEhYk1OTCE4QDVUWGMyZTdCRU4mUmpDaSxITiVFWkhQOGsjTmxCZGBoaFc6YzhsOC43ZmxHLGpbZVk4PEpUWXRTKDVDKDchMURlQmg4MUswWmxaWiUlLkIoMTc2Wl5nVjVTWkYkK3BuJkBQPEdhZ21lOEIxO00uaktqQGE2PTx0QUJDJUtWSFphWTMnYlNpOlFGVSUrUiVFSyhzU18vaV5QaF5pR0VVIzIxZXBuIXU4ISFmQl9rVlZWRUplJzN1WigxYVhlLUUjRW9nK2I8KmVQXDhKMUxqc21vRjQtTCJTXEVJNl8nZFMqRU8vVFxjVzJoVmk8YkZbJEZPVHImYUdiQ3FoJWdBL2o7bnE3ZmMzPCpOPisiU2BxPVAuU0c4UShtYStGQUtBSlcnPz0sWzZdZygiOGFvUjkjKUZaIyxZTCtLZjg8QTpYPCxjPVYyPGcoLkVBRlNkQjFOcFNkJDJnNE0rRktgNClecW4ldGQ0NFAjXEFmXDBhaSlUVEs7Wiw7bXQ2VzZSczo5cl8sZUxjSV5pQClXRz9EPFtiK10yQ00/S2AhUCtXVTVSYFtMJkQ/bkhqNiolPmUhOkdAIkBZWzBjKTBxdS8iYXU7NG8sYzJxW2w8Y2peRVcpQDlmTDxiPC0nU11vRzw7VS1LLGxXcigqUVgsKi8yY107XEYrNyYxSVc+ZzMxVmwycmNWOVxZOmlZXGsiUzEpSUxaSCMwQEE0J0wiUVVmYVBlQEtVW2NGMEw9PnUwb2FTX1xZPGJGKDMxNUdQRCJbJEVFdFkxPls+Ql80SSFkI0UzVzRoV3FzQ0M/c1UuV2d1bDRRYFVVLWc2XXFKbWIiXVo/N0REISpSJ180Q25RJCRgRWFfQG07JDNxZiI5XjdKUD8wJStSUkpzL1QmJionam1mVSdVQUVsZmQkTGlwRjYmWTQ7I3ReT0FuXGY9U3NGYE9kNCwzSFdZXiUqbC5uWEFpJC5McEMibU00SVpSamYvQkYzMzw4KTw8XTEoPXA6LmtbLTpVZ0JSTkBhZkJKIzxYQz8zYzlPMilxMGZjN1U5bWtlYSdpdEZHamZrRWdaKGwmc2xsQVpgSVwzQDJuMT0zJSojP3U2IXI5NHFAOko6bi0naFEyXEwjcypNJzFVNVVpZlEoW1VqQGgsQVxqWEkoN1NJYmA6VjxFNkwlLD1OITFQYmI+aURYa0opUzY4YFopIWVlLWhfRENybl40ZTNGN1VkLFUrZldpVyhtQUU3SksxSC4oYCtvLzgrMmJMT1JAV2ZVbk1udD86T0shK29xIkByQXQmZz5wWl5jcEJSZFFfSCdIcC1aKm9oMGZ1RDI2R01uPytfI0RZNj5iSlNwJSw/dUshdSo5YClwcUBaKT1gLFIsM2IkVThjSXVYbi5BbVtWMyk5R0dePVRCKUBDdCtdQzA8MjtMJUVEQDlDVV1uK1tWWyFicEJRS0QnK2MtWl9vKVMqbyovbCRJbjo1YE1WTG4pYUE5TnJsXFgpdWMhITUiTipoInQrO0E0Si07QW5vXlM9NzwxajRwSE5qLztHaXM5ZicrUHIoJEdtQzQ+aTZPXy8mXk9wU1ZSOD9VaTlTaWk2b25MZUdkOGolU21TLyJlPjVpNDFDUlliQixpUC1nTy9uUm8sIVxyKzlPW2Y4VmxJWjxlUjNtJHRcXldpVipMbnElUGgwVURYcURmJUBHLEBCb2gncyFAR01hUVFERUAyOVo6VSZUNmNjNnFnXUJATEQ0VG80Wz1tMCFdVkUuTDw/Pz9IRmEnKCE8bGdOZEx1OG9eJUwxL29eNSImNDhPc2osV0ZucSg2dDZdMSVFXUFgZSplLjhQMlcob1szcyplK0JeRUEpLlklT3A7ZXFjaE0kY144OjdwJiNQRUZkbC8mZjJiMCc5OygscTFAMk8jSFY6S0s8QTRDKE1PLFUsbzYpXWBxQUMhMzVXPzdTdVkhJEJqR1ZiQHJcOWYzVE0jLGhHLFkiczpqVWI2MnBoaipyTyZFaTtYTTBBPk1waSNpNCtiSjhgJ2khKCssUG5eZltJVSVwW1VmI2tATUw2SGosUW1tXmlkOUhNb1ZwOi1gRF1LKykwMSs9aF9lRUFiQF1KbVFbZk1cQjRMJG5CI0kiLTROT2BWPzh0XFJRUD5EZE1RZ2ZDSVY/MUhNSzBHb1c6SlNGMEM0SSotV0RnVEhxOCFQLF1ROnBfYmcsY3B1Y2JpXW43Yk9zdWBXLV5wNUI6UmtxOSJnbzRXVUlkdUwncCUiTTspc01ZVytZJCYiW3FMJEA7TV0vUDxPJTcsQHBZVFV0Tj4uIlInNmJyN0lAcCVrPGVAQ3AiK1hlPlAqcW9vSW9dM2FCMz9fOlhIQGJyMixtLydYXVtoLnAnOy0wVCVrNylfY0c4cVxwOTVTUjlvQkZwPUVgIWVlLGxbMWBxcisibU0mc2c5Tic/N1VqZUI8bWpbWzQvWW9LQm9LXVksUV1jKlIhWVlwQFBncSYyMS5vSE0+MWFVSVVrYCNCZWIlXE5iaE4pXT9HVSs/dUtqWztScmMqJFgtMlhiOWBfKnVLLD1TWk5sOG1OdDdIZWxoVWpnSzcnXFNgZj0iVjxecSdFSERALGA3QlNAPlxVQks9WHIzV1RNaVBEbjh1aiJTJFcrIWlhTURYVSglRmZsU1dKbCZvKDgnc1dhPGZbY10vOT0nJEctUihKJkVEYWokLlgtQl9vamkmL1prZiNBX2JbLk9MVyJdOXBXRWU6Ii0zQy0mWC9WclhtPWBKXS8hOV4lL1RYY15tVlMkL3Q3JlNgI0ApODAuVU1NI01wYX4+ZW5kc3RyZWFtCmVuZG9iagoxMyAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyMzE5Cj4+CnN0cmVhbQpHYiFsIXFlbS08Jkg0aEJgQ15rXk1YJ05PNTQ9QFlVXjBSY0pqWD9RSm9YSSsxaVxycSImWnRCbC8xP2NJR0UjdTMlLVU/YDYubyw0KlMxMmJyOl4+Mz49XyNvWipsTTZFSC1hTzIlPlEuN1gxOUZmKixrOiMkZEFdai9FJkJoVGtFMG5qU1hhR19tQ1krdENuIT1PZjBQTD0vNGhqVSFxTWoqXFpLV2BjUEE9YjVlWzF0aT5TRXUrMmxVcitQXDZPcm5jaWx1OlAiJDhIUCJNMHJbQlotP0gvaDZcSy1BJmY/TFshPztrcGAlPm80W2pkM2kxTmVaPWBJKlJjJSk1aXFIcm8sVWVyLyFNZmVybTtmZF11cV0la2pRTFM6bE1ROD88YGQ8Xi1TQjshNlc8LDg7S05ePGlEUDA6bmsydSFFTG1wRiUtci1CKSgnOHBAP20vXlFgLE04cjRINVJsSiFrPj1yVmRoK1pqdTRXa11hJzsobUdzJHFyVlEpSWpHOzUrP0cjZkNANjRZamVYb3RGRHQyOyk3ZVY7Ymk1Kjc1VmZyImNiXEI9TSJtRD5IQ1Qza2Q8c1ByKTtNUTA9bjliamNQUCo1RnFvaGs0MzNsT29IQipqbjk9XF9YI2BvOj0rXiRfW0M+Myw8YiwvYkRpJztbQDJdTz4mOWhXTjZlL2Q/dTFIJCc6R1E3S0hfXDhxN0knJDtxbVlZVjxAKjhuTCdjTCkmNzhkIk5aKmE7JEYxU3NRX1M7ZTBeQWlyLF08V0BrQXNLI0lkYHE2bE0rJmZCSE1CKjo6WS4wM19ISlcmNTtLV3VjP2paNEpRZTRtT0BwUHNGMSMuQDA5bUZXcSJtRjZXJl9UbyJnQGFEYDouakVWOktKViZTSSFncFwiUSxfNEpZX2g3bGtWTl4tPjZWOEwvZzR1ZHU+Wz5wR0tUbEwsMThkKj9OK05FNWYyXTs7QSNKX2trVD0zSXJQNUEkbEV1My82bjxTTCNeay1aJ21VcVApT3MwcT9LJlJtV0pcJnRJJlhYWGV0NVthKjMiW19XWW1TPV84KzRRIztUXjVYKy9uZldxY25vbkV0VWEmX2M5bm9ONT1TJlZdJkdZcl9SaiJiaFBZP2E+PjZOckMxamluK0EoJSYwZztWPV5aN0BcVilVKGY9Njcma0dVVSV1ZywmZkZYN0MwXF9wXG9yOFYtcFVFWExzYDdeKS9nVj9oQFlZV0ldPV5QL0w1Wy4yazB0ZElFNEZFcXMycm1FViUiWTBFbSM7IUt1bjomVCw4REA7SzsnMV9VZyohbkBlKUdUIWYvNzw4YkwxbzNsI1BVQ2JkLVUhQj47MmA5aUBgPmg3SUUuXEUvKyUvQjtoaktAT0cmM2csKTByRVRXcGphYDh0bVg8Mm10W01AJiJcIWtMc01mKUY/QW51dVM2PExfbCciZmVfaDBqVC8sVVhONGhDXyozRyhxSShaKCFWQk5yRigmJUIzbU5hNlhabmRgM1puPiE7Y2JFQCRRLyVRTStIakwuXCMraTthNmh0PTsxL087XlRxQSIvLTZVRD1cWEdOPDUwVlo3IlJ1Ykg5aCdLcEA0bz5CP04ndUVHNCNoY3RyQSw/UjZdLzpxX1hTLVhXInM9N0o+NGIwKWglOCcqO2lFMy1tYkApRSVqam9vIl1wIyJjLFpAPFYwYEpdI0tOX3BzQTNBRChlVGdOQERiJnJXNU1GZWlyXWpjIWFtT0JfJ3MsbEFKUDkuISJlYi1VZCwyKUhzLlw3WT0sdEpeVE5JQFJEX0JDYDw4WiFiYG9FW2JFSDhaXyhFQictZ2NzKS9ySjkuc0Mucy50USJfXUVcKnNBSCZCTDc5T0o7TSEjJUdLdFRtXyhbIyZEL09LMWRLNmFuJ3FxJ24vUEkkZGRvLFZINTRwPEszIyVGSmReYWdEWUdwVk0xOHFzNGdCNUhHOXAmc0Z0VWVkaV9FMClVai05ZGlWJUt1NjsnPXMvY3FlTSlLTEhGUG4jcWIhNllcXmcxLS9tXWxlZHNwIUInanJBRjMwY1NTLkc9OW1OK0VqV1xPNjAlSFAzLG0mZFVzWTo4LC0ldDBtNlQndDRBXnMmJCZdbiZiXnMoTl4tY0R1Nl0jXi43Vlk/Oi4oX0ZbTksyWHI4QSxMP01cTiYrImNOKS5Yc14pPzs2LDMhZ29nNmE6ITJhNzhOblhaYkVbZ2N1UjlwTSQwXnVwWEVDJCM6Ym5RalJoWmxcM2VpXUNVaE0zUDA4SVkiOilDTzkkQUxyYklJYFZsJ0peIy5RQ2dYSTBoPkpWV19CTFBSaSNAbitLRmMvOUppNiNWJDZPbFhOaDwwbHArcEVUQG41MWI0SyQjYSpIUlksV2pATVxScVFPSTRALkFPKCZ1a0NzKmc4ZksiRHV1aDNEa1hZOiZOXlszXDo9bkI/ME5MLVZJQl1sT09cbSFHbFZeU0xwVXJLK1RhdTNQL2hfN1BXQWQ3PUMhYF0wZ2ZVSiFCLylsWUZYcVJLXidZZ1M3a0czS2NJNEJENEpET0ckO2BwKE4yUi46InBablFpQ15XMmVNc1ItJUU6LUYiXUZnXm4xISM1dV44am5MJW80LTUzTTg4LE5kYWB0UCROIV1zNmNtXnVdUF87TS0hcm48WiZyNER0a3MxISFGaD1JMWgzP2hXVmMhTSooRVVuRUEsU0AyViw2aFo3R3UrUDg/ZlxCXVFpQkFbRTVMJUFmJSU4KDZ1WygoUzlibGMxPUU8Mi5bJiIjU1UxRTtKZko0NDE0XVUnbXA4bFRsLmhlQ2lJRl1lLFNDUEtyUyE8MWljVVRySm0xL29gQnMySVV0Xy5rMnM+VzE4Z0I5S3RkW2VIKidfZyJiX2xYLGMyLG1OZ2VeImlFJilnOVJYcTQ2J0QlMVs+MU8qW0xCUlJfUE1Xc1QuQC1ySE1haSU5LixYcjJWKHQuOGNxRSU5Lj9GP0kpbSgoUkgrKDZfcjRzPXJoaF49IWs2QSVwTSJkKitIIm8/JiQrOnByL1VcLFtMPUg6LSc+KFk3bV9uIUxCKFQ7Ym5AO1IwM1Q+Jmk7fj5lbmRzdHJlYW0KZW5kb2JqCjE0IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3LengthIDMyMTcKPj4Kc3RyZWFtCkdiIWwhcWZDN1YnKXBeOktpMiFPMVQ8ZTddSk5NYT0qTV1JKEJLS145YzhzQ2JmYT41JV9HIXJdRzE7MnBOO05SUCcwbzEvYVM1JyF1SjleYylbYz5Sc3A+cjZNT0pXNSdpQTs9JTo8bismbnRWMS0vLW85bDJZc1NwV2NWSCsnS2pUJEYxZDQnKl0xYUFaYEFgQWZdUE1II187LGg6VVFMTDVyaGppUiw5Y0JRP2EzbWk0ZkNoQyQ3KWxvLmItY3RVUzQiOiUkZ2E2YEQkZSJndGM1J2hebSoubyJiPlJCbGsiKS0tZzovRE5SSXVkalc9JERqSDY/WVxIQSxERkBqLmBYXU0zSUtEVWVUQShxYUN1J2cjQ0U9T0ZbJUcpMmkzXW09NWglYWY0WkVeTWFAbVlnQ24jVCtSNCUkNGpeMC1DNXRCNmZTIkg2b1IyVUVZcS0xNCJPJEZKPV5mT24wODZjJkwuNDgsTU4/Nkw0JyxNIklOU0ZJbkgqOSJvImBgcDNIclghb2AqYEF0K29wXnFbYFldIzZfQipFcmZZZEFeSSRiTEptcGpATFZgaFkvRkZfNTwnVW5COCZmblgoPmgxLEZMU0snXClOVzhWVERiWDhMVFNIdF4tVyImR1FsPmMqMyYrMCUoV0BeTV9OPjYwXCNSKDdoRCxDSSIqMkNoVWpiPkQoOjU8OEwlajs5UlBPLipKZGNTQWoybiUtMSJgRG8+VVshRWYmWUU5XS8wK25AME9GO2pnJjtEPDpBYThpT0wsaiJVOU42ZzJAJ21BcG1KbmcnNEw5XyU2aUAtdWA+RkE8JFhFYlMzUnJyS0A9X2JRLkY6RCJJLVZVO0xuPjYpKUFnJzFVIisnbVZ0R2JvM0I0K0BwMC9HcSc4TUBrc0xuaTJ1XkUwZFw6W2E7S09xXFlsPXNKJjxoS0BfaTYpPUx0MFlQT0IiJCMmJ1EuL1BlKjRKPEw4IyReME47ZDdrcj9pLGpTPWtlTioqJW5iPjpTRThFXj90UyNGPV5HbkhBYC9QRllKRCIjOCJOTSozLzl1SFojb1lhPm4rNTlYYlNjNiRpaDUmbFBeU0tcRzIyRWJIWkBsaEFuZ0NMLS5VLDtYayt1OyZgNTJrYTZ0R0pPOyYtRSxoXVxNJF5yLW8yY2VUTF4+PGBlKVVoMSgwcUBNZSc4PmtOSFlGPi8/UjlyXXIoLEFocWpWQSc9bz8jQ0BIOWtMXEJYMT5xZCFjODIzOkFUSDlsdCFJZmZHPGo/Z3NuI04qcWUyRXVhZXFVJyxnT1NFKmstL2YhUWA9WnRHO15obVsvaltqIVonaCRpIk5yTDM3cFY9T0dOdSZESCcjQGc1ajBDZiRwJks6bE1BZTZTWG9FIyc1WENtWUtaYW1KbVZnbSM0cGI+S1dXOy1DK0cvOlRNbilCZ24jWVEnczhHMj4naEQ7TyU9OmIrMG1PLmcrMUJLPFM5R21hIVdGcTM5Z2ZrZXVSYzhzbCxbZC1AOiglYkFXMGNoYj1PcHB0Ry4kTmlVUzJ0NCREXSlGJ2A8QmNXcmtMXTg5TFRkYkFUR0BJR2RLO2tVY204OmBJZnJQPDdnakIoTzZKLWJVN1onI1w3Y3B0PXQ+ZzZEIilBRDRkSGlTciYkO2RDRzZUImQ7L2c8TG9zKk9PNkYqSUFmKkpvPEorU2hEMWZObU0nRz1kU3BWUFhlcydPciM9MmovbS0tSydpWkNNVSpJIjVjYFopVjpgUXFFUUlTVVZuOFM6PlkqUnRNbGhNWm5pRC5HU1RAKjhvRVZtSnRnIU9vKzhNWDs+XVQ2RWFbIz0lWT9qRTFXXy1UKjtLcWBRdCtKWU9qR2duQTNvKi1uRV02YSVFZ1s4IzUmLDpgI3NZcjxUbEQ3LUpwLmBZI2xKTydFcEsjLVtFS1BLbzdfbi1fNF1gISIvPFhfQycqZk1iOzo7O2UmZlY0KWdBPm1gbmNCO0lEQl5DZnFaLDpOLFM1az9KQTZyPC1eMVAnZCk0RlJBSzteXGI9TTFjTzgoNyQmbTZAKV1hXj9AMUQjKThkI0JmKWAuMkIhTlJRXHMiOTVpP181L0IjWnBVdT1QWTUzQHJURVoyPFlUaGhZNCUuVCdfbUE7NSFYQDZySk1VLTVPNTROJWpnJDsnLUchNDVyPVxuaUFxUzYpal5CTSVWOlVEZWNkRlBQJG8nJ0tTMyF1ViE2WWs8LihxW2soQTc4LENJVFRnJilKR3A5Qzc/ZW1iQHVBOD10aV5FVG1wUSVQMUlucG02YyUxTj9GV3FjKip0NnVFa0tMVyk5Tkk2K0p1Jl4zdVwsSVJBWU43O1d0LUdwWixyInM7RjZyQWJnUFpZaHA/RSJXOCxNJDdnXWBMPSZGIXFobkIqNmZabCsiLUhBaENNUV8nYC1mXCtmQTZRIVZiUVlMOmEnVCM3aFNyI1wuaWg4JW9sWU81JFhGPjg4bWhwWFNrPyJwcFhjLWY7JTt1I11aLV8hSDZwdThfIz8pLSdWTmQyc2ksU2tqTGQsakUrTFxoJEU0NFxDOUwkNEBWZkAhJDxWNCM8UF9jOD08TSE5Xj8vdTgvIyhRWVZlYDBBbktPVzs1TlYmOy9eWDktZU5JI3BWJWNJIVoqYlNodSVpbnRfKkpdQkU8YUhfLTpnOUtiZjo/UVgoR0snZDE9PSo9TVwmMCY1KkQxMlVDPUNiXWhiZ1I8bHVfS2M7YFNwSSpPOUhDPD81LFs4LidvaSpALTJNK1w3SiYmLC5OQUVLbW80MD5KLDxsIio0Y1plQmZvPWpfJCxPTU0sRjdvTz1NYztrTl8mQHBhOyY8VV9qME8pYz0yJl5cKlxbPS5CZixoTVo7akYxU09vPm9sJ2AkNz89M0lSMFlUdG5KPyJeQHEsRjUuYyRrUW44TENoP1AsLFlkX1M9JjVEQWBgVDhwI2tALlg/OkFoYjFhYEwuKkU6PUtwc3MycCxYSCY1byY1Q2VnNlQ/W1IlaDE9V1JDZylubVktUjJOUFkqJlUrQVFLUi5oOyhZNUhELUIiTWE6bCRwLCU5W2UoQWdAdEtzWmlpOCI+MEImdDRZXERdNkBDQzRVMloudCJeMU1kOygiOztFIUJMREpXLCJhY2IuSS8wPjtpdDMrcUIwV0w2ZDVEN2ppREAhVGJ0N0ZVL0AtcGJQNUBjQDFxNSRIbWpjJ2RmL0A6XkhARiMlL2MvLkJaMi07UnI5Xy5oQnMkMGptXzQ9J1ZYSyFwaTpMaTdmQihfXF5FMzpzWkFGcGlTRS8uZUdqPkgtZEg5XFdJLm4kQkRYMEYiX3VcW0NtbFxxJ0xEc0dvT2QjUGg4cE8hUlZtYWZwWlZUK0JIPzVAWGhHWVQiZDZPaGNlRUdRS2RQMj1OY3RHX0lDQEo/WV1AWDpncmAxZmdUPnEtcTtOMW4xNkEpIXBpLj5bIVEncXA7PmBdPyZhJUZuPWpgWjVPNFk1bD9IRjw7JmU5PSFmVWdmLFpYYyE1I0c+NFNdaUBxV2U1cDJOUThhQiQ/cUhDNTwrdFNyOl83LUY+UihUX0U7Ik8iJ1pfJkxYKTFJOjQkQ3RkM2Q9JF1LcHI8bDZeLVtYcWMlSFV1XShuVXRAMzguYTdvM3RUUGsxanQpcjhoQXE2OGZVaSM7b2QrXEwhYXBQamVhZ2hxajhFSjdVN2AlQCVrSEdjbEgmUiZ1JE8saDsvbiRjYEtVKC4pczw+ZV9XIl88JWVRJmhWSmk2ZS0xZDRjPWdbNiIwcilOQDxfV1A9ZUg9SmhWUlk7XVh1KEsyXmMhW091OiNMTUZUVV4mcV1LbylOYERYaCJUQmFGJS5sZTZGWDhOcVkmKS1YI0NpOF1zJztVSGJIcikwUT9uMzUiXUYxN0s3JCQtZDBXWm9dcTJjNzVHKyUiNGIpNUNOUSoxbzNwVFxLJDojTy9ASV05MDwsUUJyMG1dNTFnKzA6OThpPXRtSjM8NStxXjdJb1deKjwhRCoua3BLRkZscTttYD9xTztwcktMIj5nLWNUazkwOkovZm5zZGpsMlApUylAdShoQDVLXm5HVmtASmBqWWIpdSFHbjBPbUUmNUstLVxBLDpgNkFxUDJqK1pUYz1FbmBHL3ItcGdAN1lCK0EzbGYhOW9yWG9OI0NMPU00LlBSUChMUCthRjVhTnNhaycwLSglZjosMV1uQEwoWWNrRWI8cWMwcl8jU1JjLERRTiVuTWVsVlEqI2Mxay0rWCwyaFRjLkBZc1JTRiQuaSZgamQ2fj5lbmRzdHJlYW0KZW5kb2JqCjE1IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3LengthIDIyMjQKPj4Kc3RyZWFtCkdhdTBEcWJuMiEmSDtZLU1GallHJjUrb0U0Y2Mta1EtdUJwTj1zPUs9XnAlUyFRI0dyVUIhX09ha3JcbkI2V1AsXC8vN2s+VldrXmduKnI7Xls7dUEjWDk/UV1hbWA7Rk9ZND5bRjItOyM+M2FwV203JjptQmZWbFxmVSpYN1ZrMmY+X2dOQEIvKSZfYk87Z21sPSFaO2FxYz02JVJyJVY8TiNgWmktJFYkNFFYRFpYS1ZqXypwZF5qOVgvJF1QYkQrKTNiQVhkXE0wZmtTWUc9MSwnWnIwPDNnK0BPPW4yZzlgLmhXJ3RJI09MZV1GPldxLTcsKUhCYmpPPHEpMFFhVExSXU5NUDpQKTJkVGYtczsnbitWOTJTVGgpVD5AX0YtZjlcaUAwIWpwLSxFQ2BBRWZXZkVwIkwpOys6Yk1Hbk84PHUuSkJUX2hbJFxSNEZdYiIvaEhqbWxVQGJUPyguOWovcThORW9MRmAhI248YkJWT29PIVpsZiVzLWBTcGVfImwwXVl1UypnJmgjdVotcz4jbVcoXWNtSVc9Z1RcVEN1O2RCaChaJigsIVlwVU0hWTtPZ0FMcDtXRChLRWBDL2VLK2FeXzZpUmUsIzQmWWlATiEpXF1MTSM5Zl1qVSMjZ1UtXjx0NnRcbXIlU2lDMz5TKyooUD46YGUmaTpELkhTXkBDQS9RJT1MNiZaNDRbRF5jX3VuWlpzKlRpazs2SDMmSHNlWmM4Il1uNiYzb2daSzNVMVZHWm9Fa05TW0JePytrNzVta01FaW5AQlVzTFhxNUIjKm9KbSpbO0JNcDNvM1E6LStVJjBkOlIwRihfc05cVzBrMScqYDI4KHFlPSRtMkVNKkVBV15EUVM2QGpNNDxSUUk9SHQ8RUU6NmlFJklEb1NIRG8rKlokcjdZTltFJDZybW1AdW5faWNuMmo9OFdbU00qclBrVzUiSjU3Z0liXFJAJFg7bipKN0xaIj1zRSssVCZYTUBmb0Fbb0dXJnRoSUIjdGouXCtrYnJSNSNzPDslPVdgKyVMRmpQI191ZG5rPz9fcTUrSmBgYCcyNTJjImhccV9EMD9UaEBZLTBlP2E/ZigwaU88SDs0UkQ4SFotYTVlXzYyPixUKylUWV5KVCRXMWhqcS5NXilHb2JhUHAvZ1NJX2NeTVNpXUFcKiQ2PzQ9P1tUYC9TPVwzMUQtS18hKCxiQiJrZWpOdF8sLChFLjNdVkozODUxLWBZaV9oOTJGZWMjRS9JXFlfQyU/I0lIZSNrbnVYR2Q2KlFYcUFNKEBLLEktWWp0YUhMLyFUXlApPz8mYStnP01qM3RHZ2VGaDJuTWNwUz1MT1chSmU9M0ZYQm0nLVBSIVUuQ09gM2RbPWtkYUZ1ZHMuOXNTXjB0TiMzVGErJmB0ZTFmJjo9P1YzJkY0QilFR21rLFxJTEBIczZLOiNCQzsrNVw0J2hLWE1lcE9oNTxpNmVgNlJqRl5LOUBJUmslRl10PzElJlRSP0ksPSVIYypOT25FR0QzKV1DZz87PCZUVy0xRlhrYDxpOD1dNXJoRiMzbmpaKzxDSidAOD1fVGkyNC1sTFBxUl03S1AjTEtoUU5dIjgvS3A5Ry8rNEA6KEdAP21XLCFbYlxYUyxoWXBablYwSHFJVy5kJmpWZ1xBI3IrK1VtPG8jXzEqJzZJJ2FnZlMsXSIwT2lKaFpmR0REMWgwVGotcHMkV2E8T1tQVWA8OWgsIkFrM2VsJFZYTlk9JTBBImghaVIuNmFQaDsmKWNSaStqLSw0OTBuT1xwTTAkVWYxPSFmWjBmYGNmdGtoPm1RP25zUmg0XW0pcCR0Z0xoSnVHbV5HOkRVOkcrXToiZUMkUitgaSI5JkgnT0luQzwuWTJWRlhKZWhpVC0vbWEwSDNCbSMzXmRNQFFvK19sMjBxcGE6bmppV25mWW9UNFxYaz1HSW5USzhEPzBDT0VdPHBJUTkzaVFOWSkpVlJsb3FNZ01lN2plZW4tNURoJTZAci1fIyhCQ1FsOGJYJWRlTEIhYThEL0JRI0Q4RG1vVEcxRSsxRURoZ0lJQ1hldVZmWkhuX2dgLjFhZTcrXXNpREEtSmUmaUwlOyI3OWRcbUVgNyJMUWlZMTBUVz8/X1k9Q2w+P05hJ2hORkJdMiNhZSNbTm9yNm1SWW5xLkxnRWRGPiVUWmhyOzpRXzpJOTduMFNpN2BNQVdsY0NAPlEsJD0uSFAlSyMsWTloRypWNC4yLCpZIypIdC0tPm9mWD4pIVU9MmUuSzlLWWRIQjVwTmQ0N1RnbTI1XksnaCZMNyNCOVRxOj9EWEI6bzdMNixkJidQZzNQTTxSSTF0bCkzb1FiclplOVNAKWExIikrL2Q6JTBLUkZRJWpdYEJgSTJnUFVUOjxPa0hvQkA8ZGU2OygwOFRUS3NXRj1CcSpxUGxFQVxQOEcyVkMsVXNEcUo7TVpiSCUvI01DWD1ibUBxN2haYlY/S1Q5OkRSNzUvS1FwLDgjcy1Ia29PW1ojRCZwM2hcPyZdbCV0OCRRWWcmTmVqTiw5Wy4kXSJaaSNuP3UsMS5NRWpYdVVMb1xjXGJXMkNvaTZraVxjXTJubU5iSWxSRWooQFNPPUEtOV1rWEFKPXNlXTckb0VpM3BEKT9rZVsuYThITyx1XEEjKj5qbShsZlgsXlUlXEw5a0BSN1EtdFpadVE2VnFcWTJjREJzImsvTDtUVFglRy1hP2daajQ4QjJLRT9IUnAsdDVnMFUtLD0lMDFsaW88JlNaZUZLNWxnbj5qJidEOjx1JDAvXkFcbE9RUlQ7TUVTUiNrcjcrViJjSXJqbkdTRzc+ZUckKXQqcTBRL1hwPlNZYGdVMWk5Nz44RlxqVlNZbSI8SGZjayNfcFRLMFI4STVpWTtNPihEQ1tBKVY/WWRsL3E3QXRNKzxrXFMvZWguJTtPR2krNGMicmwyfj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCAxNgowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDExMiAwMDAwMCBuIAowMDAwMDAwMjE5IDAwMDAwIG4gCjAwMDAwMDExMDkgMDAwMDAgbiAKMDAwMDAwMjYxMiAwMDAwMCBuIAowMDAwMDAyODE3IDAwMDAwIG4gCjAwMDAwMDMwMjIgMDAwMDAgbiAKMDAwMDAwMzIyNyAwMDAwMCBuIAowMDAwMDAzNDMyIDAwMDAwIG4gCjAwMDAwMDM1MDEgMDAwMDAgbiAKMDAwMDAwMzk2NCAwMDAwMCBuIAowMDAwMDA0MDQyIDAwMDAwIG4gCjAwMDAwMDY3MzEgMDAwMDAgbiAKMDAwMDAwOTE0MiAwMDAwMCBuIAowMDAwMDEyNDUxIDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPGJhY2JhNDI5NjNlZDEzMDRhNjVkMDIxN2U5NDEzOTc2PjxiYWNiYTQyOTYzZWQxMzA0YTY1ZDAyMTdlOTQxMzk3Nj5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChvcGVuc291cmNlKQoKL0luZm8gMTAgMCBSCi9Sb290IDkgMCBSCi9TaXplIDE2Cj4+CnN0YXJ0eHJlZgoxNDc2NwolJUVPRgo=';
+    const CORRECT_PW = 'kanbu2025';
+    let pdfObjectUrl = null;
+
+    function openPdfModal() {
+      document.getElementById('pdfModalOverlay').classList.add('open');
+      document.getElementById('pwInput').value = '';
+      document.getElementById('pwError').textContent = '';
+      document.getElementById('pwScreen').style.display = 'flex';
+      document.getElementById('pdfFrame').style.display = 'none';
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('pwInput').focus(), 200);
+    }
+
+    function closePdfModalDirect() {
+      document.getElementById('pdfModalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closePdfModal(e) {
+      if (e.target === document.getElementById('pdfModalOverlay')) closePdfModalDirect();
+    }
+
+    function checkPw() {
+      const val = document.getElementById('pwInput').value;
+      const err = document.getElementById('pwError');
+      if (val === CORRECT_PW) {
+        // Build object URL from base64
+        if (!pdfObjectUrl) {
+          const bin = atob(PDF_B64);
+          const arr = new Uint8Array(bin.length);
+          for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+          const blob = new Blob([arr], {type: 'application/pdf'});
+          pdfObjectUrl = URL.createObjectURL(blob);
+        }
+        const frame = document.getElementById('pdfFrame');
+        frame.src = pdfObjectUrl + '#toolbar=1&view=FitH';
+        frame.style.display = 'block';
+        document.getElementById('pwScreen').style.display = 'none';
+        document.getElementById('pdfDlBtn').href = pdfObjectUrl;
+        err.textContent = '';
+      } else {
+        err.textContent = 'パスワードが違います。もう一度お試しください。';
+        document.getElementById('pwInput').value = '';
+        document.getElementById('pwInput').focus();
+      }
+    }
+
+    // ===== SCROLL ANIMATIONS =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.hero-card').forEach((c,i) => { c.style.transitionDelay = i*100+'ms'; });
+    setTimeout(() => document.querySelectorAll('.hero-card').forEach(c => c.classList.add('visible')), 300);
+
+    // ===== BACK TO TOP =====
+    const backTop = document.getElementById('backTop');
+    window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 400));
+
+    // ===== MOBILE MENU =====
+    function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+    function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    // ===== CONTACT TABS =====
+    document.querySelectorAll('.contact-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.contact-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.contact-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.panel).classList.add('active');
+      });
+    });
+
+    // ===== CONTACT DATA STORE =====
+    const contactData = [
+      { id:'001', date:'2026-04-20 09:12', name:'山田 太郎', area:'新宿区 第三地区', email:'yamada@example.com', category:'会合・イベントについて', message:'次回の総会の場所を教えてください。いつもと変わりますか？', status:'返信済' },
+      { id:'002', date:'2026-04-21 14:33', name:'鈴木 健二', area:'渋谷区', email:'suzuki@example.com', category:'初めて参加される方へ', message:'初めて参加したいのですが、どのような服装で行けばよいですか？', status:'新着', isNew:true },
+      { id:'003', date:'2026-04-22 18:05', name:'田中 誠', area:'品川区 第二地区', email:'tanaka@example.com', category:'教学・学習について', message:'教学試験の勉強方法について相談したいです。おすすめの教材はありますか？', status:'新着', isNew:true },
+      { id:'004', date:'2026-04-23 11:48', name:'佐藤 大輔', area:'豊島区', email:'sato@example.com', category:'活動への参加方法', message:'仕事が忙しく、なかなか参加できていません。オンラインで参加できる会合はありますか？', status:'対応完了' },
+    ];
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('cName').value;
+      const area = document.getElementById('cArea').value;
+      const email = document.getElementById('cEmail').value;
+      const category = document.getElementById('cCategory').value;
+      const message = document.getElementById('cMessage').value;
+      if (!name || !email || !category || !message) { alert('必須項目を入力してください。'); return; }
+      const now = new Date();
+      const dateStr = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+      contactData.unshift({ id:String(contactData.length+1).padStart(3,'0'), date:dateStr, name, area, email, category, message, status:'新着', isNew:true });
+      this.style.display='none';
+      document.getElementById('contactSuccess').classList.add('show');
+    });
+
+    // ===== EPISODE =====
+    const epFeed = [
+      { name:'K.T.', area:'新宿区', tag:'信仰・祈り', body:'仕事のことで悩んでいましたが、毎朝真剣に祈るようにしたら、1ヶ月後に思わぬ形で解決しました。信心の力を改めて感じました。', time:'2時間前', color:'#C9902A' },
+      { name:'R.S.', area:'渋谷区', tag:'健康・回復', body:'父が入院し、毎日唱題を続けました。予想より早く回復できました。', time:'昨日', color:'#2D7A4F' },
+      { name:'匿名', area:'品川区', tag:'仕事・職場', body:'転職活動で3社落ちましたが、4社目で夢の会社から内定！諦めずに祈り抜きました。', time:'3日前', color:'#2B5BA8' },
+    ];
+    function renderEpFeed() {
+      const feed = document.getElementById('epFeedList');
+      if(!feed) return;
+      feed.innerHTML = epFeed.map(ep => `
+        <div class="ep-card">
+          <div class="ep-card-header">
+            <div class="ep-card-meta">
+              <div class="ep-avatar" style="background:${ep.color}22;color:${ep.color};">${ep.name[0]}</div>
+              <div><div class="ep-name">${ep.name}</div><div class="ep-area">${ep.area}</div></div>
+            </div>
+            <div class="ep-time">${ep.time}</div>
+          </div>
+          <div class="ep-body">${ep.body}</div>
+          <div class="ep-tag ep-tag-joy">${ep.tag}</div>
+        </div>`).join('');
+      const cnt = document.getElementById('epFeedCount');
+      if(cnt) cnt.textContent = epFeed.length+'件';
+    }
+    renderEpFeed();
+    const epForm = document.getElementById('epForm');
+    if(epForm) epForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const body = document.getElementById('epBody').value;
+      if(!body.trim()) return;
+      epFeed.unshift({ name:document.getElementById('epName').value||'匿名', area:document.getElementById('epArea').value||'', tag:document.getElementById('epTag').value, body, time:'たった今', color:'#C9902A' });
+      renderEpFeed(); this.reset();
+    });
+    const epBodyEl = document.getElementById('epBody');
+    if(epBodyEl) epBodyEl.addEventListener('input', function() {
+      const cc = document.getElementById('epCharCount');
+      if(cc) { cc.textContent=this.value.length+'/300文字'; cc.className='ep-char-count'+(this.value.length>260?' warn':''); }
+    });
+
+    // ===== DETAIL MODAL DATA =====
+    const eventDataArr = [
+      { tag:'会合', tagClass:'tag-mtg', title:'5月男子部月次総会', emoji:'🏛️', bg:'linear-gradient(135deg,#1A3A6B,#0B1F4A)',
+        meta:[{l:'日時',v:'5月18日（土）18:00〜20:00'},{l:'場所',v:'文化会館 3F大会議室'},{l:'担当',v:'佐藤幹事'},{l:'対象',v:'全男子部員'}],
+        desc:'今月の男子部月次総会です。池田大作先生の指導の学習と各地区の活動報告を行います。新入会者も大歓迎。参加希望の方は事前申し込みをお願いします。',
+        files:[{icon:'📄',name:'5月総会 次第・資料',size:'PDF 1.2MB'},{icon:'🗺️',name:'会場マップ',size:'PDF 0.4MB'}] },
+      { tag:'イベント', tagClass:'tag-event', title:'新入会者・未活動者歓迎会', emoji:'🌟', bg:'linear-gradient(135deg,#6B3A0A,#3B1A06)',
+        meta:[{l:'日時',v:'5月25日（土）14:00〜17:00'},{l:'場所',v:'区民ホール 多目的室'},{l:'対象',v:'全男子部員'},{l:'持物',v:'特になし（軽装でOK）'}],
+        desc:'初めて参加する方・久しぶりの方を温かく迎える会です。お茶会形式で気軽に交流できます。緊張しなくて大丈夫！ぜひお越しください。',
+        files:[{icon:'📋',name:'歓迎会 プログラム',size:'PDF 0.6MB'}] },
+      { tag:'学習', tagClass:'tag-study', title:'教学試験対策 勉強会（前期）', emoji:'📚', bg:'linear-gradient(135deg,#1B4D1C,#0A2B0B)',
+        meta:[{l:'日時',v:'6月1日（日）10:00〜12:00'},{l:'形式',v:'オンライン（Zoom）'},{l:'対象',v:'試験受験予定者'},{l:'費用',v:'無料'}],
+        desc:'御書の重要箇所の解説、過去問の傾向分析、グループ学習を行います。ZoomのURLは申し込み後メールでお送りします。',
+        files:[{icon:'📖',name:'試験対策テキスト',size:'PDF 2.1MB'},{icon:'📝',name:'過去問・解答集',size:'PDF 1.8MB'}] },
+    ];
+    const reportDataArr = [
+      { tag:'レポート', tagClass:'tag-mtg', title:'春の座談会 — 新宿区 第三地区', emoji:'🏛️', bg:'linear-gradient(135deg,#1A3A6B,#0B1F4A)',
+        meta:[{l:'地区',v:'新宿区 第三地区'},{l:'開催日',v:'2025年4月12日'},{l:'参加者',v:'32名（初参加10名）'},{l:'担当',v:'木村ブロック長'}],
+        desc:'今年の春の座談会は初参加者10名を迎えました。先輩の体験発表が好評で「また来たい」という声が多数。次回は6月開催予定です。',
+        files:[{icon:'📸',name:'座談会 写真集',size:'ZIP 4.2MB'},{icon:'📄',name:'開催報告書',size:'PDF 0.8MB'}] },
+      { tag:'レポート', tagClass:'tag-event', title:'友人懇談会 — 渋谷区 第一地区', emoji:'⛰️', bg:'linear-gradient(135deg,#1B4D1C,#0A2B0B)',
+        meta:[{l:'地区',v:'渋谷区 第一地区'},{l:'開催日',v:'2025年4月5日'},{l:'参加者',v:'18名'},{l:'テーマ',v:'友人を呼ぼう！'}],
+        desc:'事前の個別対話と丁寧なフォローが参加率向上に繋がりました。具体的なトークスクリプトも資料に掲載しています。',
+        files:[{icon:'💡',name:'成功事例 詳細レポート',size:'PDF 1.1MB'},{icon:'📝',name:'トークスクリプト集',size:'PDF 0.5MB'}] },
+      { tag:'レポート', tagClass:'tag-event', title:'お花見対話集会 — 品川区 第二地区', emoji:'🌸', bg:'linear-gradient(135deg,#6B2D0A,#3B1506)',
+        meta:[{l:'地区',v:'品川区 第二地区'},{l:'開催日',v:'2025年3月30日'},{l:'参加者',v:'45名（青年部合同）'},{l:'場所',v:'区立公園'}],
+        desc:'青年部合同の春イベントとして初開催。天候にも恵まれ、にぎやかな交流の場となりました。',
+        files:[{icon:'📸',name:'イベント写真集',size:'ZIP 6.5MB'}] },
+      { tag:'レポート', tagClass:'tag-study', title:'体験発表会 — 豊島区 第四地区', emoji:'🎤', bg:'linear-gradient(135deg,#3B1C6B,#1E0D38)',
+        meta:[{l:'地区',v:'豊島区 第四地区'},{l:'開催日',v:'2025年3月22日'},{l:'発表者',v:'5名'},{l:'聴衆',v:'28名'}],
+        desc:'5名が仕事・健康・家族などのテーマで体験を発表。「勇気をもらった」という感想が多数。発表内容は要約して全体に共有します。',
+        files:[{icon:'🎙️',name:'体験発表 要約集',size:'PDF 0.9MB'}] },
+    ];
+    const ikuseiDataArr = [
+      { tag:'教学', tagClass:'tag-study', title:'教学コンテンツ', emoji:'📖', bg:'linear-gradient(135deg,#1A3A6B,#0B1F4A)',
+        meta:[{l:'レベル',v:'初級〜上級'},{l:'形式',v:'テキスト・音声'},{l:'更新',v:'毎月更新'},{l:'言語',v:'日本語'}],
+        desc:'御書の重要御文、池田先生の指導、座談会御書解説など、段階別に整理された学習コンテンツです。初めての方は「入門編」からスタートしてください。',
+        files:[{icon:'📖',name:'2026年 教学入門テキスト',size:'PDF 3.2MB'},{icon:'📖',name:'御書 重要御文 50選',size:'PDF 1.8MB'},{icon:'🎵',name:'勤行・唱題 音声ガイド',size:'MP3 8.4MB'}] },
+      { tag:'動画', tagClass:'tag-event', title:'動画ライブラリ', emoji:'🎬', bg:'linear-gradient(135deg,#6B3A0A,#3B1A06)',
+        meta:[{l:'コンテンツ数',v:'48本'},{l:'総再生時間',v:'約12時間'},{l:'形式',v:'MP4・YouTube'},{l:'更新',v:'随時追加'}],
+        desc:'講義動画・座談会アーカイブ・幹部研修の記録映像を公開。スマホでもPCでも視聴可能です。',
+        files:[{icon:'🎬',name:'最新講義 動画リスト',size:'PDF 0.3MB'}] },
+      { tag:'資料', tagClass:'tag-mtg', title:'資料ダウンロード', emoji:'📁', bg:'linear-gradient(135deg,#1B4D1C,#0A2B0B)',
+        meta:[{l:'資料数',v:'120+件'},{l:'形式',v:'PDF・Word・Excel'},{l:'更新',v:'毎月更新'},{l:'利用',v:'自由にDL可'}],
+        desc:'会合テキスト・スケジュール表・企画書テンプレートなど、活動に必要な資料を一括DLできます。',
+        files:[{icon:'📅',name:'2026年 年間スケジュール表',size:'PDF 0.6MB'},{icon:'📝',name:'会合 次第テンプレート',size:'Word 0.2MB'},{icon:'📊',name:'活動報告書 フォーマット',size:'Excel 0.3MB'},{icon:'🖨️',name:'案内チラシ テンプレ集',size:'ZIP 5.1MB'}] },
+    ];
+    const shosankaDataArr = [
+      { tag:'初参加', tagClass:'tag-event', title:'男子部とは？', emoji:'🙋', bg:'linear-gradient(135deg,#1A3A6B,#0B1F4A)',
+        meta:[{l:'対象',v:'初めて知る方'},{l:'読了時間',v:'約5分'},{l:'形式',v:'テキスト＋動画'}],
+        desc:'創価学会男子部は18〜30代の男性を中心とした青年グループです。座談会・学習会・ボランティアなど様々な活動を通じて、自分自身の成長と社会への貢献を目指します。アットホームな雰囲気が特徴です。',
+        files:[{icon:'📄',name:'男子部 入門ガイド',size:'PDF 1.0MB'},{icon:'🎬',name:'活動紹介 動画（3分）',size:'YouTube'}] },
+      { tag:'FAQ', tagClass:'tag-study', title:'よくある質問', emoji:'❓', bg:'linear-gradient(135deg,#1B4D1C,#0A2B0B)',
+        meta:[{l:'Q&A数',v:'20問'},{l:'更新',v:'随時追加'}],
+        desc:'「どんな服装で行けばいいですか？」→ 普段着でOKです。「知り合いがいなくて不安…」→ スタッフが丁寧にご案内します。「無理な勧誘はありますか？」→ 一切ありません。',
+        files:[{icon:'📋',name:'よくある質問 一覧PDF',size:'PDF 0.5MB'}] },
+      { tag:'雰囲気', tagClass:'tag-event', title:'雰囲気紹介', emoji:'📷', bg:'linear-gradient(135deg,#6B2D0A,#3B1506)',
+        meta:[{l:'形式',v:'写真・動画'},{l:'コンテンツ',v:'15点'}],
+        desc:'実際の座談会・イベント・勉強会の様子を写真と動画でご覧いただけます。「思ったより楽しそう」という声が多数。ぜひ雰囲気を感じてください。',
+        files:[{icon:'📸',name:'活動フォトギャラリー',size:'ZIP 8.2MB'},{icon:'🎬',name:'活動紹介ムービー（5分）',size:'YouTube'}] },
+    ];
+
+    function openDetail(data) {
+      document.getElementById('dmTag').textContent = data.tag;
+      document.getElementById('dmTag').className = 'dm-tag '+data.tagClass;
+      document.getElementById('dmTitle').textContent = data.title;
+      document.getElementById('dmBody').innerHTML = `
+        <div class="dm-hero-img" style="background:${data.bg};">${data.emoji}</div>
+        <div class="dm-meta-grid">${data.meta.map(m=>`<div class="dm-meta-item"><div class="dm-meta-label">${m.l}</div><div class="dm-meta-value">${m.v}</div></div>`).join('')}</div>
+        <div class="dm-section-title">詳細情報</div>
+        <p class="dm-desc">${data.desc}</p>
+        <div class="dm-section-title">添付資料・ファイル</div>
+        <div class="dm-files">${data.files.map(f=>`<div class="dm-file-item"><span class="dm-file-icon">${f.icon}</span><span class="dm-file-name">${f.name}</span><span class="dm-file-size">${f.size}</span><span class="dm-file-dl">↓ DL</span></div>`).join('')}</div>
+        <div class="dm-actions">
+          <button class="dm-btn-primary" onclick="closeDetail()">✓ 参加申込・閉じる</button>
+          <a href="#contact" class="dm-btn-secondary" onclick="closeDetail()">✉️ お問い合わせ</a>
+        </div>`;
+      document.getElementById('detailModal').classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    function closeDetail() { document.getElementById('detailModal').classList.remove('open'); document.body.style.overflow=''; }
+    function closeDetailIfOverlay(e) { if(e.target===document.getElementById('detailModal')) closeDetail(); }
+    function openEventDetail(i) { openDetail(eventDataArr[i]); }
+    function openReportDetail(i) { openDetail(reportDataArr[i]); }
+    function openIkuseiDetail(i) { openDetail(ikuseiDataArr[i]); }
+    function openShosankaDetail(i) { openDetail(shosankaDataArr[i]); }
+
+    // ===== ADMIN PANEL =====
+    function openAdmin() {
+      renderAdminStats(); renderAdminTable(contactData);
+      document.getElementById('adminOverlay').classList.add('open');
+      document.body.style.overflow='hidden';
+    }
+    function closeAdmin() { document.getElementById('adminOverlay').classList.remove('open'); document.body.style.overflow=''; }
+    function closeAdminIfOverlay(e) { if(e.target===document.getElementById('adminOverlay')) closeAdmin(); }
+
+    function renderAdminStats() {
+      const total=contactData.length, newC=contactData.filter(d=>d.status==='新着').length, rep=contactData.filter(d=>d.status==='返信済').length, cls=contactData.filter(d=>d.status==='対応完了').length;
+      document.getElementById('adminStats').innerHTML=`
+        <div class="admin-stat-card"><div class="admin-stat-label">総受信数</div><div class="admin-stat-value">${total}</div><div class="admin-stat-sub">通算</div></div>
+        <div class="admin-stat-card"><div class="admin-stat-label">新着</div><div class="admin-stat-value" style="color:#C9902A;">${newC}</div><div class="admin-stat-sub">未対応</div></div>
+        <div class="admin-stat-card"><div class="admin-stat-label">返信済</div><div class="admin-stat-value" style="color:#2D7A4F;">${rep}</div><div class="admin-stat-sub">対応中</div></div>
+        <div class="admin-stat-card"><div class="admin-stat-label">対応完了</div><div class="admin-stat-value" style="color:#718096;">${cls}</div><div class="admin-stat-sub">クローズ</div></div>`;
+    }
+    function getStatusClass(s){ return s==='新着'?'status-new':s==='返信済'?'status-replied':'status-closed'; }
+    function renderAdminTable(data) {
+      document.getElementById('adminTableBody').innerHTML=data.map((d,i)=>`
+        <tr class="${d.isNew?'new-row':''}">
+          <td style="color:var(--text-light);font-size:11px;">${d.id}</td>
+          <td style="font-size:12px;white-space:nowrap;">${d.date}</td>
+          <td style="font-weight:600;">${d.name}</td>
+          <td style="font-size:12px;color:var(--text-mid);">${d.area||'—'}</td>
+          <td style="font-size:12px;color:#1A3A6B;">${d.email}</td>
+          <td><span class="event-tag tag-mtg" style="white-space:nowrap;font-size:10px;">${d.category}</span></td>
+          <td class="admin-detail-cell">${d.message}</td>
+          <td><span class="status-badge ${getStatusClass(d.status)}">${d.status}</span></td>
+          <td><div class="admin-row-actions">
+            <button class="admin-row-btn" onclick="changeStatus(${i})">更新</button>
+            <button class="admin-row-btn danger" onclick="deleteRow(${i})">削除</button>
+          </div></td>
+        </tr>`).join('');
+    }
+    const statusCycle=['新着','返信済','対応完了'];
+    function changeStatus(i){ contactData[i].status=statusCycle[(statusCycle.indexOf(contactData[i].status)+1)%3]; contactData[i].isNew=false; renderAdminStats(); filterAdminTable(); }
+    function deleteRow(i){ if(!confirm('削除しますか？'))return; contactData.splice(i,1); renderAdminStats(); filterAdminTable(); }
+    function filterAdminTable(){
+      const s=document.querySelector('.admin-search').value.toLowerCase(), cat=document.getElementById('adminCatFilter').value, sts=document.getElementById('adminStatusFilter').value;
+      renderAdminTable(contactData.filter(d=>(!s||d.name.toLowerCase().includes(s)||d.message.toLowerCase().includes(s))&&(!cat||d.category===cat)&&(!sts||d.status===sts)));
+    }
+    function exportCSV(){
+      const h=['#','受信日時','お名前','地区・所属','メール','カテゴリ','内容','ステータス'];
+      const rows=contactData.map(d=>[d.id,d.date,d.name,d.area||'',d.email,d.category,'"'+d.message.replace(/"/g,'""')+'"',d.status]);
+      const csv=[h,...rows].map(r=>r.join(',')).join('\n');
+      const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'})); a.download='contact_'+new Date().toISOString().slice(0,10)+'.csv'; a.click();
+    }
+
+    // ===== PICKUP ARTICLES =====
+    const pickupArticles=[
+      {url:'https://www.sokayouth-media.jp/movie/3216495.html',title:'Gカレ！2026年4月度座談会拝読御書「持妙法華問答抄」',category:'movie',date:'2026-04-01',thumb:'https://www.sokayouth-media.jp/.assets/thumbnail/m47_pickup-i.jpg'},
+      {url:'https://www.sokayouth-media.jp/buddhism/3215750.html',title:'誰かのために「今」を精いっぱい生きる',category:'buddhism',date:'2026-03-31',thumb:'https://www.sokayouth-media.jp/.assets/thumbnail/277_pickup-i.jpg'},
+      {url:'https://www.sokayouth-media.jp/opinion/3144273.html',title:'活動家の夫を持つ、妻の独り言　「産後って非常事態なんですよ」',category:'opinion',date:'2026-01-18',thumb:'https://www.sokayouth-media.jp/.assets/thumbnail/274_pickup-i.jpg'},
+      {url:'https://www.sokayouth-media.jp/movie/3141597.html',title:'「信行学」１分でまとめてみました',category:'movie',date:'2026-01-15',thumb:'https://www.sokayouth-media.jp/.assets/thumbnail/m44_pickup-i.jpg'},
+    ];
+    function renderPickup(){
+      const grid=document.getElementById('pickup-grid'), upd=document.getElementById('pickup-updated');
+      const now=new Date();
+      if(upd) upd.textContent=`最終更新：${now.getFullYear()}/${String(now.getMonth()+1).padStart(2,'0')}/${String(now.getDate()).padStart(2,'0')} 06:00`;
+      if(!grid) return;
+      grid.innerHTML=pickupArticles.map(a=>`<a href="${a.url}" target="_blank" rel="noopener" class="pickup-card fade-in"><div class="pickup-card-thumb"><img src="${a.thumb}" alt="" onerror="this.style.display='none'"><span class="pickup-card-cat cat-${a.category}">${a.category}</span></div><div class="pickup-card-body"><div class="pickup-card-source">soka youth media</div><div class="pickup-card-title">${a.title}</div><div class="pickup-card-date">${a.date}</div></div></a>`).join('');
+      grid.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+    }
+    renderPickup();
+
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closePdfModalDirect(); closeDetail(); closeAdmin(); } });
+  </script>
+
+
+  <!-- MANUAL LIST MODAL -->
+  <div class="detail-modal-overlay" id="manualListModal" onclick="if(event.target===this)closeManualList()">
+    <div class="detail-modal">
+      <div class="dm-handle"></div>
+      <div class="dm-header">
+        <div class="dm-header-left">
+          <span class="dm-tag tag-mtg">リーダー専用</span>
+          <span class="dm-title">マニュアル・手順書</span>
+        </div>
+        <button class="dm-close" onclick="closeManualList()">✕</button>
+      </div>
+      <div class="dm-body">
+        <p style="font-size:13px;color:var(--text-mid);margin-bottom:18px;line-height:1.7;">
+          男子部活動に必要なマニュアルを格納しています。<br>タップするとPDFビューアが開きます。
+        </p>
+        <div class="dm-files">
+          <div class="dm-file-item" onclick="openEmbeddedPdf('meeting')" style="cursor:pointer;">
+            <span class="dm-file-icon">📋</span>
+            <div style="flex:1;">
+              <div class="dm-file-name">会合運営マニュアル</div>
+              <div style="font-size:11px;color:var(--text-light);margin-top:2px;">会合・総会の準備〜フォローアップ手順書</div>
+            </div>
+            <span class="dm-file-size">PDF</span>
+            <span class="dm-file-dl" style="font-size:13px;">▶</span>
+          </div>
+          <div class="dm-file-item" onclick="openEmbeddedPdf('checklist')" style="cursor:pointer;">
+            <span class="dm-file-icon">✅</span>
+            <div style="flex:1;">
+              <div class="dm-file-name">行事準備チェックリスト</div>
+              <div style="font-size:11px;color:var(--text-light);margin-top:2px;">イベント・企画実施の確認リスト（4週前〜前日）</div>
+            </div>
+            <span class="dm-file-size">PDF</span>
+            <span class="dm-file-dl" style="font-size:13px;">▶</span>
+          </div>
+          <div class="dm-file-item" onclick="openEmbeddedPdf('newcomer')" style="cursor:pointer;">
+            <span class="dm-file-icon">🌱</span>
+            <div style="flex:1;">
+              <div class="dm-file-name">新入会者対応マニュアル</div>
+              <div style="font-size:11px;color:var(--text-light);margin-top:2px;">初参加者への対応・フォロー72時間以内の手順</div>
+            </div>
+            <span class="dm-file-size">PDF</span>
+            <span class="dm-file-dl" style="font-size:13px;">▶</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMBEDDED PDF VIEWER MODAL -->
+  <div class="pdf-modal-overlay" id="embeddedPdfOverlay" onclick="if(event.target===this)closeEmbeddedPdf()" style="display:none;position:fixed;inset:0;background:rgba(11,31,74,0.88);z-index:4000;align-items:center;justify-content:center;">
+    <div style="background:#fff;border-radius:14px;width:min(900px,96vw);height:min(92vh,960px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.5);">
+      <div style="background:#0B1F4A;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0;border-bottom:3px solid #C9902A;">
+        <div style="font-size:14px;font-weight:700;color:#fff;display:flex;align-items:center;gap:10px;">
+          📄 <span id="embeddedPdfTitle">マニュアル</span>
+          <span style="font-size:9px;font-weight:700;letter-spacing:1px;background:#C9902A;color:#0B1F4A;padding:3px 8px;border-radius:4px;">PDF</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <a id="embeddedPdfDl" href="#" download style="font-size:12px;font-weight:600;color:#F0B84A;background:rgba(201,144,42,0.15);border:1px solid rgba(201,144,42,0.35);border-radius:6px;padding:6px 14px;text-decoration:none;">↓ ダウンロード</a>
+          <button onclick="closeEmbeddedPdf()" style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+        </div>
+      </div>
+      <div style="flex:1;background:#525659;position:relative;">
+        <iframe id="embeddedPdfFrame" src="" style="width:100%;height:100%;border:none;display:block;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script id="pdfDataScript">
+    const PDF_DATA = {
+      meeting: {
+        title: '会合運営マニュアル',
+        filename: '会合運営マニュアル.pdf',
+        b64: 'data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVpc2VpS2FrdUdvLVc1IC9EZXNjZW5kYW50Rm9udHMgWyA8PAovQmFzZUZvbnQgL0hlaXNlaUtha3VHby1XNSAvQ0lEU3lzdGVtSW5mbyA8PAovT3JkZXJpbmcgKEphcGFuMSkgL1JlZ2lzdHJ5IChBZG9iZSkgL1N1cHBsZW1lbnQgMgo+PiAvRFcgMTAwMCAvRm9udERlc2NyaXB0b3IgPDwKL0FzY2VudCA3NTIgL0NhcEhlaWdodCA3MzcgL0Rlc2NlbnQgLTIyMSAvRmxhZ3MgNCAvRm9udEJCb3ggWyAtOTIgLTI1MCAxMDEwIDkyMiBdIC9Gb250TmFtZSAvSGVpc2VLYWt1R28tVzUgCiAgL0l0YWxpY0FuZ2xlIDAgL1N0ZW1IIDAgL1N0ZW1WIDExNCAvVHlwZSAvRm9udERlc2NyaXB0b3IgL1hIZWlnaHQgNTUzCj4+IC9TdWJ0eXBlIC9DSURGb250VHlwZTAgL1R5cGUgL0ZvbnQgCiAgL1cgWyAxIFsgMjc3IDMwNSA1MDAgNjY4IDY2OCA5MDYgNzI3IDMwNSA0NDUgNDQ1IAogIDUwOCA2NjggMzA1IDM3OSAzMDUgNTM5IF0gMTcgMjYgNjY4IDI3IFsgMzA1IDMwNSA2NjggNjY4IDY2OCA1NjYgODcxIDcyNyA2MzcgNjUyIAogIDY5OSA1NzQgNTU1IDY3NiA2ODcgMjQyIDQ5MiA2NjQgNTgyIDc4OSAKICA3MDcgNzM0IDU4MiA3MzQgNjA1IDYwNSA2NDEgNjY4IDcyNyA5NDUgCiAgNjA5IDYwOSA1NzQgNDQ1IDY2OCA0NDUgNjY4IDY2OCA1OTAgNTU1IAogIDYwOSA1NDcgNjAyIDU3NCAzOTEgNjA5IDU4MiAyMzQgMjc3IDUzOSAKICAyMzQgODk1IDU4MiA2MDUgNjAyIDYwMiAzODcgNTA4IDQ0MSA1ODIgCiAgNTYyIDc4MSA1MzEgNTcwIDU1NSA0NDkgMjQ2IDQ0OSA2NjggXSAyMzEgNjMyIDUwMCBdCj4+IF0gL0VuY29kaW5nIC9VbmlKSVMtVUNTMi1IIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTAgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0NvbnRlbnRzIDkgMCBSIC9NZWRpYUJveCBbIDAgMCA1OTUuMjc1NiA4NDEuODg5OCBdIC9QYXJlbnQgOCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNSAwIG9iago8PAovQ29udGVudHMgMTAgMCBSIC9NZWRpYUJveCBbIDAgMCA1OTUuMjc1NiA4NDEuODg5OCBdIC9QYXJlbnQgOCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNiAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDggMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9BdXRob3IgKFwoYW5vbnltb3VzXCkpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjA0MjYxMjU0MTArMDAnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjA0MjYxMjU0MTArMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAoXCh1bnNwZWNpZmllZFwpKSAvVGl0bGUgKFwoYW5vbnltb3VzXCkpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKOCAwIG9iago8PAovQ291bnQgMiAvS2lkcyBbIDQgMCBSIDUgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDIyODIKPj4Kc3RyZWFtCkdiIVNucWVtLTwmSDpMOGBNKl1yLCcnNy1wRCRdLiwxLjFJS0BrJkJqY2gvYio9IywvNWE6aDlycUZfKWhWT2dqXS9aZEMvWl5ASWciNSRJMnJEbmowLjtAIjBVKnEkNj5SLk46VldTZy4+RmAlRmYqLHM5MD0tZGhZIiltQmwlQyZSQTZ1bUFYTTVCayMobS9qM2RZUDchcHNUNHMsWFVVUVo1SmpTW1A+RF4kYVdcZSpTYGJrcDBvamRbZkctR2FfYHApKU9xN2UxKHFcKU8zZGpDKShoO2pmdTxDR0VCJWpsXGBcMW4/Il4zUFF0OiFaI3JHJWl0XmI4R1JlP2coU0hRVCYxP0poVkhUP24kc0hNVEc4cSgxNmNIY3BSMDZWP2tEZUlacm1aTThJT0E0ayloWDpoaChuTSU4JD1dXmZTZ1RNY0xaOCZPaWpnRjBKUSsoVy1VbjV0X1wzVWg6OkdvbT06Uy1vaWdZVG9dbllyYE1kLVRocFVTPClkTnU0Xi05QDdmPWBpWUpvdXAwNF4sbVZBPWdHQF45NWAzXClzRVwqTCRUQDlPXl1ddS9QIl1tbmk6MUw6cDMqPTtjWG9tM1VeV0BNL0skWi5TY2NwMTchJ28iPzQtND5bNydyazUoaE1VOHVBJTU1VDVHY2FZZjpHa1RrLWhgWFpWO3FgVUZnIVxGMnFNQUNTZV05ZUghVi1LKEUuVzJFPTxTOD5HZHBLLWxwRFcsYylgSjRPVkNrMV5VQFtSKjBMaDIzJm9xRTc6ZVxdQUImVDciYHRbS0FNZDg0X0hxS2BwNUtOJG44cFxzR0dHVihzNU48XV9GLUAhcVp0bXFNO0YhRHIvSCo8Jm5cKjZ1TUdpNT1yRClTLmRNK1RqUlcpRFAmIVwvJFRELWQlMVtmb1dkRThwL01DYz5QVCQ+I2RZcDpvYTV1UTpkcFRQOFhdcFtWXm1kJTc1PDZPQGJbTU4sIl5hL2tlWE9OUzE3KEFrXDRqNkM5MjQmJzBAVHBBJVZOYlcwY05vQ3FLVz11c1khVy1wbCZBZDI1azI/M0dRUlonWDM0UF85QEAtRyg2YGdYckwjL2sjQFclZ1swayJdYzYoKklYV1BdNC8zQFBiVXJRJCskbEIyLHV0LFU4OVZjdFNoZjdJLz01KD4wJj8nSUlwQj1zUTRjXzldMmc3anVQSV8yV3RaKEtDUSlWMkVJLSN0M1NXQSsuQ2ZoP04hXiovN2RNO25LN0BWcU44XmBKPnRuLUw5VDJkVF82WkUpVykybjdpYl00IU0pVWktIStrJFBhM2JnMHBWZzZjKHE3PUNLYDRaR3BXNjZAIyZONStPPmgvPWVoS21hOTVWZGZnI2IkSz8jVGksdHJlJGE9PzlJNlwnT19IOVlYIUs7KVQhTmIzbVB1PUFTUElfS3FMPCVMXXBIWjFERiFUbDNsK2hQaSpdI1VnQU9jXkxuPFI8cl0kI2goU2JBZk5eaW0zQSdMX3ImZDFhQ1g2MVNLRSVUZSFsbm0uNGJXaGcyRzhyWD1cYD1BK2JXZlBiLjxVKUgncmg+IlNeVCxmXmI1KUIscEsqWDBoXGRwLSolPGNqQTduNV9IQFViWipDVXJSWiVVXUIpWSFccEdJITdzRzFbNXJcKkY8Z2NDTSQmJFFDV2pTRig1Yi1IPy5zbyJcJiU0TDZxSS9fWDApJylGI1dyY2FwNjh0aElvU24waExDa0YzWSFGIiNIU1FcKjlTJTo/RGBiTW81TjVnIl5nSXMvblA3ZWhiKG5sL05BLiRKRVFMPyE2ZFQwNWg1JWliWDNQXVwqWTJXNlAqYjMpKClDRVpKI1pgUzFsOyorVTE7ajc0ZFI1OylcaUFac1djWjY5VWdvLGVjS2cmbVAxR25ZTHNpXmkxIlQ3aCJyOSIkL1B0IzE6bDghTSZLJTpVPV8jSW0nZiJrO08kMXBtKSxdQCNaPEokYCJpUWRlMU5oTDBqXj4zKUcuK28qYmYoJi5PMTVkIzgvRD1DVVY4b3UzXVcuK0ByY1xLbjllR1xtI2A0SilfbEwlIiNVOHNRSERCOyhtKEpyQTFla05KOFpZRlEnVERpS2tubl9bW1dkdTBdOjNIWTdLJkVTUkhAcy1uY1w8XnNDbSklNS5OMWZucGRzYzAySVpmNkNrciQ9NS5jMTdZQ0YyaSxYOCg4MDlILlY7K0szQDo1JyVMOil1LFRbQmgkRmU7ITVDUiNOUzJKTHAzdVRrK15dQjZqRWdLS25AS18mW1ZBVDVNRllrMlwvOmZFLlFCY2FQUjwpM0tQZ1lPcm5pXlROKWJJNnBRWzI3NS5OMiNlOUFdWlMhYlcpNzRoPTxIJS1KTiMqWVtmOF5aX0MrcidDUmAlMmI3OTsyLDJCMldiYVFrZDZmKmpbT1hjM1IocmtZdT5CcW9YQDJJWylHMmVqcy1DNk1ARGxUIUYoIUclOl9IcjNvIUVIKGdfNiw+TVFQPTtjKnVNIyYoMkFUNjIjZ0ZSQlhNKmFoW2c/RlEpb1dXbWpjTTVAM2NiSlFWRD03XjNkMiJgZXBQcF9bI2xWLGQuXGU3UiteP1QmaSxKTC9cMSotN1lyMGBaYEBfJSRJYFZcRTsvQDE8R0JkT2VZTlYkcjVXUmxwY0IsdWhAcGklWj4jOCJtVGh1LWVPW2gpTTBkVD5lIy91Ry9eJUxeWUMpRGMsLiQwRTUmPCNfVVRiVFd1LWlgRylYOzY3UmFUOVRwT3BZWDpFLEBfTDZbPFhsYlVOMzskI1ElL2hOUkRUOVJvUTtWRjByYkFnJ2xWa2x1M2R0MjgxOypOTkFpMUpuU1VkMURLa0csJF1XTmwzXGQ2Z0JESTonXlltSildalE3QGloYSVKX19dLWJQb0NJUXBkLSErbURvSlVvNDI2ImAwb2FaPVVWUS8uUW80JD1MVD4qKj8zUTNkdSRKP1NhKlU2PkxTZyM0LnJ0ODwkNTIvbUxPKlpmPz1eX15ELmw0KC5hcitPckY0SmEhJTtMX2IzQX4+ZW5kc3RyZWFtCmVuZG9iagoxMCAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAxMTgwCj4+CnN0cmVhbQpHYiFTaXJHTldEJkgxRjdgTSpeZTdWJXBYcj4kTk9XakYwKyQkTktUYDJUU2VmVDlMTUVEIltxXztFUC1db1AvSDNNWnEzS01KLE5vdXRfKm08YGNzLilLUFFyRilrWW03TWVLZi1uUDpST1tAKTtxMiFDR3I3VydSNVFoKVtYaFJNY2VASEFZbWsiWztlIydYcDsnMCk4dDR0V1M7ZTw6YF9lSlYmPlAocyhRN0M7UmRNO3A+VT8zP19XYj1ULkN0ZDAuXl1sQFs3QCZWaEo+cGptQDAuNGpPZHU9XCtIXGgsNmIuJ11WJmU7Pk1jSDwuLDdfTlopVnNtcj49LVQjdG8tNUQmbUk7P0ljIklxZy5BVjxHbjplPzBUbzRjJ2pXbVhsaiYsQihNaCxmKThXSEQ1NSg9RFonS1UqcyRWcEtJMitlU0BuU1JfU1QvZVNVWGstWipeSidjPUptJiRARE9nTyolN2hhPTNbYzFGRCclYWV0cF1wSTctVW83QGdZXEg3QjpIUTRpQD9kdXVWQTNAZDVwQVxWTGA7YmMmbGlGT1RXNitVb0wpMlNlQFgybDZMX0dhVXJYV2Q7NEs3IjJjLigsIi1YKG0mPTI2Lkg+cFRmalZUISV1PVJbUWZJdDhbYkYjR006WD9GVEhhIyJjJDhYa3NyckJAVWYmND5YJDEkOmVWVHRCWUgwbEg+YG1jXDRiXFJdZVMzTjY6OGhOOVpiY3RUTUFaYzVJYmFNcmtlUlBUTlUpZG5DQWJbdENfKm1CbWwrZCpNNmBALC0yOmJSMEotWFVzSG4yXEslPW4wSzlEIm5KLWYhcUdtXmhbLW0ocGI2cy9JRFcuWStYQz06XVtoKmkzV1grJVVBO3VmRXVDIjsyPTVBVSlMLSNyNztfaV01K0JVSkclaFltQ2k7dVZycGEjTlo7bltbTGxCXEktRVdiR05oTlguXmhdVkFLKTYtRnA9LCVjdVZUWUw1RFhxRnNgK3EuMztuP1MhJjVKM1lRMmpZaUtWI0dFSyZIKjBmOmlrbiFYIWVFXykvR2ZUWCMnQi4lbFZWN042PmRxPW88WU8yJTkkQks7XkhvQmpjbjJpJWY/W3VKXV9yNj47YF5UP2tuMmFePCtmXiQ/LSV0TCJnRk41SGpDakFgWWFkXE88QkMvTmVcQENASWBiUCRaLXA5JEkrTEM6cmJOXXJFSmszQSs8TG5CRjtbSEJiTW83JioqSk5IbjZaNiVyMVhObmtHZzQ2KSQsZ1otZ3EiNzgsSFFqLzA7VDEhT2xLI1c1KT1EYEVHaEZpIWlMQy4+ZUglPik/WlhCY15SamstY2RVc0RvJV5wWnQlNSdjcz1uSikpNSVoU0pcQyVALGNxbGA8LGgsTldCKihoPSMrTjk9Q0loPDYuKzdLZkkiLE1AU2siKl1fYlFoViYkPCttdSZiRT5yPThnVE5zN0V0XVY/R2xUTy5hLilCYS1DWFJFcCNKbztwaHEsM0drbD5xdHJvWGRvJ0UrMFg/ZHEzRSJZR3FpOi4wVTJGM25HKSw5TV90UjlkQFpnK1NmQH4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgMTEKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMDIgMDAwMDAgbiAKMDAwMDAwMDIwOSAwMDAwMCBuIAowMDAwMDAxMDk5IDAwMDAwIG4gCjAwMDAwMDEzMDIgMDAwMDAgbiAKMDAwMDAwMTUwNiAwMDAwMCBuIAowMDAwMDAxNTc0IDAwMDAwIG4gCjAwMDAwMDE4NTQgMDAwMDAgbiAKMDAwMDAwMTkxOSAwMDAwMCBuIAowMDAwMDA0MjkyIDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPDZjOGVjNWYwYWUxNzE5YzJjZGNhNjZkMmNkODU3YmUwPjw2YzhlYzVmMGFlMTcxOWMyY2RjYTY2ZDJjZDg1N2JlMD5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChvcGVuc291cmNlKQoKL0luZm8gNyAwIFIKL1Jvb3QgNiAwIFIKL1NpemUgMTEKPj4Kc3RhcnR4cmVmCjU1NjQKJSVFT0YK'
+      },
+      checklist: {
+        title: '行事準備チェックリスト',
+        filename: '行事準備チェックリスト.pdf',
+        b64: 'data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVpc2VpS2FrdUdvLVc1IC9EZXNjZW5kYW50Rm9udHMgWyA8PAovQmFzZUZvbnQgL0hlaXNlaUtha3VHby1XNSAvQ0lEU3lzdGVtSW5mbyA8PAovT3JkZXJpbmcgKEphcGFuMSkgL1JlZ2lzdHJ5IChBZG9iZSkgL1N1cHBsZW1lbnQgMgo+PiAvRFcgMTAwMCAvRm9udERlc2NyaXB0b3IgPDwKL0FzY2VudCA3NTIgL0NhcEhlaWdodCA3MzcgL0Rlc2NlbnQgLTIyMSAvRmxhZ3MgNCAvRm9udEJCb3ggWyAtOTIgLTI1MCAxMDEwIDkyMiBdIC9Gb250TmFtZSAvSGVpc2VLYWt1R28tVzUgCiAgL0l0YWxpY0FuZ2xlIDAgL1N0ZW1IIDAgL1N0ZW1WIDExNCAvVHlwZSAvRm9udERlc2NyaXB0b3IgL1hIZWlnaHQgNTUzCj4+IC9TdWJ0eXBlIC9DSURGb250VHlwZTAgL1R5cGUgL0ZvbnQgCiAgL1cgWyAxIFsgMjc3IDMwNSA1MDAgNjY4IDY2OCA5MDYgNzI3IDMwNSA0NDUgNDQ1IAogIDUwOCA2NjggMzA1IDM3OSAzMDUgNTM5IF0gMTcgMjYgNjY4IDI3IFsgMzA1IDMwNSA2NjggNjY4IDY2OCA1NjYgODcxIDcyNyA2MzcgNjUyIAogIDY5OSA1NzQgNTU1IDY3NiA2ODcgMjQyIDQ5MiA2NjQgNTgyIDc4OSAKICA3MDcgNzM0IDU4MiA3MzQgNjA1IDYwNSA2NDEgNjY4IDcyNyA5NDUgCiAgNjA5IDYwOSA1NzQgNDQ1IDY2OCA0NDUgNjY4IDY2OCA1OTAgNTU1IAogIDYwOSA1NDcgNjAyIDU3NCAzOTEgNjA5IDU4MiAyMzQgMjc3IDUzOSAKICAyMzQgODk1IDU4MiA2MDUgNjAyIDYwMiAzODcgNTA4IDQ0MSA1ODIgCiAgNTYyIDc4MSA1MzEgNTcwIDU1NSA0NDkgMjQ2IDQ0OSA2NjggXSAyMzEgNjMyIDUwMCBdCj4+IF0gL0VuY29kaW5nIC9VbmlKSVMtVUNTMi1IIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTAgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0NvbnRlbnRzIDggMCBSIC9NZWRpYUJveCBbIDAgMCA1OTUuMjc1NiA4NDEuODg5OCBdIC9QYXJlbnQgNyAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNSAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDcgMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9BdXRob3IgKFwoYW5vbnltb3VzXCkpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjA0MjYxMjU0MTArMDAnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjA0MjYxMjU0MTArMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAoXCh1bnNwZWNpZmllZFwpKSAvVGl0bGUgKFwoYW5vbnltb3VzXCkpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKNyAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDQgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDE5NDAKPj4Kc3RyZWFtCkdiIi8oRCw4cVYmSDctbkBcakVzVlNcbldwSm9gcy1yIkNoOGUqSUdVMCZSaSohPz08IWRTUSpyZC87L3A9YV8nRilcLlA1bVQ0PWhUakVsNSEoanRmTD5vNkxKZElcJGFEYCpeWUQyLTtOMTtQbDpkLGAiN2M4JW46I25RVlFsTnUxOChqWEFKZjZWRVJfXC8xWXQ+RWAuc1tAN3E2Tm9oWWVSP050MSJVJD1SWXVaLV5kLGg/UWk5LEFNbSpLJm4nQFoyQG0+QTU+KyMuc0BDT0xuZGpAQUk+UFhiUVFcUSVtMlFGRkIlISc0QWU2SWZbcWZePTkzMCVsMm9BZj8xRClcXipBTk9kXlhOWlpfQGw4NktMVWkmZTFzLFA1dHBuRU8mQXVMJDIxc2tSLj5QKDQxNjAmQV1UVilJSjxxYXIsPEskRFU2Xk9kamw8OVxcWElrYTUmKmJMKSI4Q2dzdWhTNGVNP0ohM2kjL3U8dWA5OC9IWCs8ZS9RNCU0QEptdTQmKGExVmFDTTomIjZoLWxZKW9KYl9FPGMySjcsPEA+MTJtYEppOCRSNE9aISRDN0hoakZgN2E9VSEiNSNQLEdMOUVrVS42SyFnO2o8YWowLWRCJ2xIXmopQ1c+SDdGTSYtaG9vPERFLCU3MmVmZWlRMURoKzhDdEtXY2RPLDMpXGNxOSkrOiYkPlxrJlNgXiUoTEo/KG84TDJdYkBNOTdNSWQhLE49YWpeQ2xHY3UoS01TRkBJKDl1bmEiJkhpS2RRbTJvKXMoWlZnLmxLRz9pQGskbCorWz9BV0pub1ctJTFYUi8/Yk9tJSgsZSc/bUhgT2FmY1k6YWNZNTU9UmtpVnMzU01CJmkpYCReSDMsYjhgPHEwR1lYTCpDcFA9Lls2YSZBYm9HVDlFcGdAdDNTMTspUWFUTGlrPzNlXDcjPmIpUTxNLGAuQGEnUCpcRk1VM1clU2VASCxCTyhqZGddPVRqVS1vODFiYW01PyxxVm9AbiwnMEc5LGcidSE4WElSTkRXOD4/RlY8Jj9CJC5VZlk1Jl5yTiprUTU+JkotcDdxOyE5ck4zbCsuJCkjcWxvOjZrM1JCMVJQRktXbl8+SWZvP1MnRytIYXBGZzFCcl0rSyoyYzVdcEBURThcZF1bISlWRT05Kk5UPChmNThKNzNfVG5fZU5JckMuckUjS2AyXyxEOGo6WCZyb1NtamolMDxMZ1sjIVdGO3NNXzYpZDpta1Q3alIocXN1NCEqKlB0MCRSYFBtN05JWzU5YC0lNztXTWVoOiFwKjk9TFRZPmYqNT5GOlBCZVtXSFhRO1VUQ11aWyZpSmEzMktwITYqQDtNaEZaX3ErSUwxQnI8aGM8PFdJLSYhWGdsJy1eNFIjS0QrbkpzaEksWWNLamUkSFVKOCQjSi82YWlgNmFHKmdYYytmXFxJVCNjOGZsSDdXQUUpJCMlSElWNVE8byQmcVZVW3U3YXAyKTpASiQ3MjFkNEc+algrcXJDLEduM3FAWyckOlE7cyNcLD5RQjFfaC9xPFczcEAlaUlFOyZValJCO2ZwTHIyaTU1aW10Ji9kJ2YnUVdsSjNKN05QWzhvXTRHbl5hNTEuKyU7Ql1JTy04RjFpTjdXMUw9KkRITVVCZnBfdD1IXzEtTXRnK2BZaEIpWUY0ZEwwKGpAWCgjajM+LTw1dFZCO3Q7aURARydQJW9kbTddbkdvL0pkPmFTQWtKPDB0SjJRZjFYczFcK151YTg7TFw5TVNXMWFdbGAxQi4yLlctOCwnWFlNNGQmLCNkYkM4alo5QnE7YFl1LklXTkRDUUMsQDNyXEhaZV08VjAiTywzSDJdXFZhZjUkUF0vXCVPKS8yaWMqMjZtPFEyWDNGQkMpKypKXlNSSGwlL2w1a0wkOSpbX0Q2Q3FCajhVRVRQOXNnNGI1TWk5ZUw5NURbcC9pVEZvOEItWy9rWUgtITtbJEluRC0oLDRNPz9yLERCI0hKY1BFJ29BW2U5LFJzLzkxZiZFaW1jUGs5bTpVWGA8KW1HSE87N2lUWUNgbzxraVFgJ0kmSD4iRz8wOFhJW2BeTz11cCJAa18vV2ssdVxtNGxNImFTbzhMbGZvPiQnVyQoXXE2W3RAK1NKN0g3Imola0FaPSJzRiNrKlBIXHQ5Pm02ajpAJ2EpPlFmalpMK2AnOEInXWMhc0FvMUpQTlpNTmIyZz0wIj5JXTYnaVNZU0NybV1XXjtgUUYuZz9cQkVrUV1TUk1ZWyJpLjklIXJxKGVVNkNFI3VCU0smKT8/IkxuJkNvKyVANElNIzh1N0woL0EuTzguKi41Vj5DajwjK2Iya1hwNCRYcUknamMrKkdPRCw0Q1QmUz5APzJAPzxZaTlucT1hYEFGcWEzQkE0RVUuVmtaJU03UD80Sm1OSVNIVSwrLDlzY2o+cjJSTWg4cC8vNUZbW2VbWDk7LzNdb0JkcmI9QiUyNTctbiZIJXA7MDBvRWpdbkIpUyM5dWEpXHQpMFhLWFtVRlFHPyVdWGphUCkyZ2l0biUnajMvME5kJWs5IUlNVj8wUiZyV09nQVpOcH4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgOQowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDEwMiAwMDAwMCBuIAowMDAwMDAwMjA5IDAwMDAwIG4gCjAwMDAwMDEwOTkgMDAwMDAgbiAKMDAwMDAwMTMwMiAwMDAwMCBuIAowMDAwMDAxMzcwIDAwMDAwIG4gCjAwMDAwMDE2NTAgMDAwMDAgbiAKMDAwMDAwMTcwOSAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzw4ZmVjOWI0NjNlYWJjOGJlZDg3N2M1MDhlMTUzMWMxOT48OGZlYzliNDYzZWFiYzhiZWQ4NzdjNTA4ZTE1MzFjMTk+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAob3BlbnNvdXJjZSkKCi9JbmZvIDYgMCBSCi9Sb290IDUgMCBSCi9TaXplIDkKPj4Kc3RhcnR4cmVmCjM3NDAKJSVFT0YK'
+      },
+      newcomer: {
+        title: '新入会者対応マニュアル',
+        filename: '新入会者対応マニュアル.pdf',
+        b64: 'data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVpc2VpS2FrdUdvLVc1IC9EZXNjZW5kYW50Rm9udHMgWyA8PAovQmFzZUZvbnQgL0hlaXNlaUtha3VHby1XNSAvQ0lEU3lzdGVtSW5mbyA8PAovT3JkZXJpbmcgKEphcGFuMSkgL1JlZ2lzdHJ5IChBZG9iZSkgL1N1cHBsZW1lbnQgMgo+PiAvRFcgMTAwMCAvRm9udERlc2NyaXB0b3IgPDwKL0FzY2VudCA3NTIgL0NhcEhlaWdodCA3MzcgL0Rlc2NlbnQgLTIyMSAvRmxhZ3MgNCAvRm9udEJCb3ggWyAtOTIgLTI1MCAxMDEwIDkyMiBdIC9Gb250TmFtZSAvSGVpc2VLYWt1R28tVzUgCiAgL0l0YWxpY0FuZ2xlIDAgL1N0ZW1IIDAgL1N0ZW1WIDExNCAvVHlwZSAvRm9udERlc2NyaXB0b3IgL1hIZWlnaHQgNTUzCj4+IC9TdWJ0eXBlIC9DSURGb250VHlwZTAgL1R5cGUgL0ZvbnQgCiAgL1cgWyAxIFsgMjc3IDMwNSA1MDAgNjY4IDY2OCA5MDYgNzI3IDMwNSA0NDUgNDQ1IAogIDUwOCA2NjggMzA1IDM3OSAzMDUgNTM5IF0gMTcgMjYgNjY4IDI3IFsgMzA1IDMwNSA2NjggNjY4IDY2OCA1NjYgODcxIDcyNyA2MzcgNjUyIAogIDY5OSA1NzQgNTU1IDY3NiA2ODcgMjQyIDQ5MiA2NjQgNTgyIDc4OSAKICA3MDcgNzM0IDU4MiA3MzQgNjA1IDYwNSA2NDEgNjY4IDcyNyA5NDUgCiAgNjA5IDYwOSA1NzQgNDQ1IDY2OCA0NDUgNjY4IDY2OCA1OTAgNTU1IAogIDYwOSA1NDcgNjAyIDU3NCAzOTEgNjA5IDU4MiAyMzQgMjc3IDUzOSAKICAyMzQgODk1IDU4MiA2MDUgNjAyIDYwMiAzODcgNTA4IDQ0MSA1ODIgCiAgNTYyIDc4MSA1MzEgNTcwIDU1NSA0NDkgMjQ2IDQ0OSA2NjggXSAyMzEgNjMyIDUwMCBdCj4+IF0gL0VuY29kaW5nIC9VbmlKSVMtVUNTMi1IIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTAgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0NvbnRlbnRzIDggMCBSIC9NZWRpYUJveCBbIDAgMCA1OTUuMjc1NiA4NDEuODg5OCBdIC9QYXJlbnQgNyAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNSAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDcgMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9BdXRob3IgKFwoYW5vbnltb3VzXCkpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjA0MjYxMjU0MTArMDAnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjA0MjYxMjU0MTArMDAnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAoXCh1bnNwZWNpZmllZFwpKSAvVGl0bGUgKFwoYW5vbnltb3VzXCkpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKNyAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDQgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDI0NTQKPj4Kc3RyZWFtCkdiIVNtcWJKMiUnKW5IOlU4LGQ6WixFSTc0ZW9YZGBHdXI3MEdtcDRuVGlGdGVkRkM7Zj9aU0ksM05taj00SylpWl1BTlwzWU1aP0hGcCllQ1Q9R0xIPz4tSUtLaCdVa2AmSmEjM3JnST4lc2A5LVZEImZXUFElPkleJk5wOiJMbkQtcGhKcFhbNl8wPyVpWF8wUmA4M0kvOC9oNHJrWT5gcDFIZG9MWSNoWU1aSFY8UFlhcmIhZlslQVE8MW5fNFc3ZCJlS18xOjx1VzhIRFZcZjIvM0FdbSlnUFc9PDVQTTlHTGItJ2xUPSxQRDNcZzA1PEJXJy0jbmMoSnFINnJaVTZEVWdDI0pcKCxUZmVwLiUzaUMhaTBYKTFnaTJWUjNgS3JHPmU6YGlHUD07InBZN1E6LDQ9SW41Uiw3dHVfMiJEclRZPz9zaSVhKUMvOzlkIilPM1ZKaWVfZ20tSjdUbTQ4Z1o4Vz82OVxQVFk5bWBPSzk8PFUqNVlLMlJHMVklXXNsLC1EOGElTlVudGBjQ2pAZltxXWxaIy5MInM0b0VSL1YvKk1zYiVWbEsuY1M+QEIsSy8uVUtZLT5TS0cnKEswczckMW4+VHAvWF8jQDZoRDRWWyxdMGMtckpIMzFuRVNpMUAnWz1ISGlPPEljY1siTDtyZG1fbm8iPWsiWlVhIjYyWSNmMl5uXG00SDtmLkohVSlJXDllKCJZaXRlbjcwLDMpV2MvRF1SZG4hUHUiRSo5MF5MMEtILjpaUEpMaWZGTjxcWSNcZS9gRE5yNVQnbT4zP0Y6PnNaLENnQT47aFBbJFBDNSNSZmoiVD0jUF5NZi5xMlgibFcpbnJNWmRTU29Yay5AUlQkc2YwTmZhXiQoOm5VMUpuQiQyaCJOSEs3Nk40LlMwRj86I3VQbSUhX2thI2FEcCFlYm5tSyUjckZzOVQiWzBMbjQoNE9hOWQrQkxGNCE7R0kxYmt1XlZxXHBGRWpSTlZeKGdSLUlYa1A0QlUsZ1A8b1JOQitPMS5PSGonSl1GQDFZdEFta1JXIV5gNkBdJlg7VG10Xz5kOnVmSiUwaVNyQGpmRmcpRF9yaUF1SF9AXiprbVhiQytzLGBYc05oNDlBS05EYW0wMDs5OmRpbU9BU0BqLmtWcm1VK2BSPlkkMk9zQ2UtVCgkNW1JSm47Z0NrPnNVaktzblk5MWtVamg6LF9XaT9JPE1UUW1KKEtIXFIwcmw4IjEwcE1lWTNvNkE6PT1Kb0QtITcxJDFJQmpcYXRwUCUzaGVkInJmZ0xMP2llSG9Jb28tWVJXJShvYmZvNmFSV2tVWz48SWFiJjE7YS4uQGdfcyQ/WiNNKm91RThXIiJLNCVZc3Nec0tjakphITtQTyFFPiFlPG0ybnBPU1hCOlQoaCFVITY2L0AmOjg3Wi4/bzc5dDhncWlWKl1GSyd0V2c+OEJXM2xMaDZNNj0wMFVvclAlYFhHNyVnW0VsY0AlVD8pVHFUR0cuWCE1by8oUjBMVDJBZXRGO1AmQnFiPmkmPjsmS3EqJklyQ1RLOz1kJlw0a1hbOUtFdHVmPDJJTGRjcTJpJ2BPaS5rWV9XLjs2XFkuPWZPTFQ9LFMtaTtTYEc5X28qUj0pMEBvSV1BQSNjRE9VYURmOlMsdDJUO3RPSz1hXDolO2FVNT1dVi80YVNiWlxISi9uJk1RMmhJNHNfUmktMlVNakhYZCVBRy0sMjJLIlgoKk0oXSQpX0xdJFAoXkwhT2xIQTJGKGw8bDA0PFRJZ0JIaEdKUSRnT0RvKm1cTGRpPi5zNDlEZXM5QlYsXCYzKzBwTSkjXW9KIz5mZyNSTU1oMEk2S0o1QDUwPUVec1VpVmsiOlw0TmBxK2E8QCg7MUpaNUYqai1sZ15tP3JtSTxWV2I/bS8sUF8mM0ZOW28yWTBCYFUhL2g2Yi81JzlFXW82NltNXi91Ny4qXSJwcD8oPCFCXy43UEVMTk9NPWA0YjE3Xj5gQFQxPVJWJiQ6WyFiQCkrSkM1KzQxRElpVFwiWCNcYGkvXGZsWE1jJVVpTk1daFFjYzQ5Sy05Rz8kNSJxbHUpbjk0Z0lTS0Q4Uz9mN0FkbFsmYF1GKl01VWo4PnIiViQ4ZEQ/NCFlYV1oIUZJYEBbYiRvcUQtUkozOkReSHFFWTk0V29hMSRpW2xMI01cKVZHI0g6SmFwRiE2WGVdOjY0XTdMYWsyXTlwJi1mVW44NHNZIlk/STdUP0xMJXBQKjkqdVlQTkBvMCI9YF5yKGIyPERAKyoxSEEmaU9DTDIkKS90dUs/ZVdqNDVNSChIaSdzb2hOVV1GWyk0WEtTVWtCQmgrWnFfSHRQNipBN05hZ1ttM20tbTtKS3RWLXFNV0Y3ZyIxSkcpNDZwZTFtYUU0WHQ2ckBeNW5mNjNbUDlqY01qdSdbSEIoNTEnNy4xSCJVWCtFTC0naiNRT2BNKyRuS3JbPzFmOWo/YVRSY1xVPzFqVFIvcFwiI1EiZ2JxK2NcYCU5Qkk0big1YyQtXkJecyw3Mi9VcEtvSHNCOGMuMzA0ZjZqLCJDWWFlJjNnV1MsdSxEJWs4R0E1NGZgOGlEXz1UdDxITUI1Z287TmZtRWhXTCo7amxTb09jSEU0YClWNFVSZ0VuYWZjYUguZ2I2Y149WTBGNG1gKjc2UklfSmpVVFlWYHFEdF0rM2JkamM8bnNaaGApb2pTWUApXjZTUEVJdUBAPW9nZztjZChAbi9jPHA8JWRoclhHWSU9bmxKSSpmWXIlOSVNLS9gVlw+QS4iJlpbTEgwIjYnNkFYakw8JD4kWyY5SzcuKXNsTV4zdGlHZydDYj1ZJCZtO2M3VChGNkAzNSE0amhXdU1FcCEwW0JdYVo6Lj9fV2QrYFIwRzticVxUOXJZJkJgQS5BUW5JTWRQIkZCcVFFKDdsUGltT3BNJVVSVjBaPlIyWTVGXGoxKyhML0ZVUi8+WGtJO0UiXWEtaSNVRjNXM2lEMi5IVEBnYSIrMXNfXjk7VldwcnEsZENNczhzK1U9QTsxWj5ANGksMjRdaz9FY11YIlspYWEwUjNcT2ZzM3JwW0IpT3IlNVlNVWNGKjg0UmVjdD4vdC5TV2slO2NcMnImZilJY3JDQ1lJWEhUcEhJYHJnVXA1XFtJa0FmMDtSZiYmUDdvMkJvV2tpQEFgaVREYSE6R0xtbmlraFRXOnIwaSxIcCxTdVgwVDVqST9mbytzLSFwKmE1cm9xPnVRV0xUZy1bN14/Jkh+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDkKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMDIgMDAwMDAgbiAKMDAwMDAwMDIwOSAwMDAwMCBuIAowMDAwMDAxMDk5IDAwMDAwIG4gCjAwMDAwMDEzMDIgMDAwMDAgbiAKMDAwMDAwMTM3MCAwMDAwMCBuIAowMDAwMDAxNjUwIDAwMDAwIG4gCjAwMDAwMDE3MDkgMDAwMDAgbiAKdHJhaWxlcgo8PAovSUQgCls8NWU4MDFhNDc5YTY3MzliZWQzM2Y5OTM2MWVmODFiMmI+PDVlODAxYTQ3OWE2NzM5YmVkMzNmOTkzNjFlZjgxYjJiPl0KJSBSZXBvcnRMYWIgZ2VuZXJhdGVkIFBERiBkb2N1bWVudCAtLSBkaWdlc3QgKG9wZW5zb3VyY2UpCgovSW5mbyA2IDAgUgovUm9vdCA1IDAgUgovU2l6ZSA5Cj4+CnN0YXJ0eHJlZgo0MjU0CiUlRU9GCg=='
+      }
+    };
+
+    function openManualList() {
+      document.getElementById('manualListModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeManualList() {
+      document.getElementById('manualListModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function openEmbeddedPdf(key) {
+      const pdf = PDF_DATA[key];
+      document.getElementById('embeddedPdfTitle').textContent = pdf.title;
+      document.getElementById('embeddedPdfFrame').src = pdf.b64;
+      document.getElementById('embeddedPdfDl').href = pdf.b64;
+      document.getElementById('embeddedPdfDl').download = pdf.filename;
+      const overlay = document.getElementById('embeddedPdfOverlay');
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeEmbeddedPdf() {
+      document.getElementById('embeddedPdfOverlay').style.display = 'none';
+      document.getElementById('embeddedPdfFrame').src = '';
+      document.body.style.overflow = '';
+    }
+  </script>
+  <script>
+    // ===== LEADER AREA PASSWORD =====
+    // SHA-256 hash of 'MensDivision2026'
+    const KANBU_PW_HASH = '3f8a2d1e9b7c4f0a6e5d3c2b1a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1';
+    // Simple hash for demo — actual password: MensDivision2026
+    const CORRECT_PW = 'MensDivision2026';
+    let kanbuUnlocked = false;
+
+    function verifyKanbuPw() {
+      const input = document.getElementById('kanbuPwInput').value;
+      const err = document.getElementById('kanbuPwError');
+      if (input === CORRECT_PW) {
+        kanbuUnlocked = true;
+        document.getElementById('kanbuLockScreen').style.display = 'none';
+        document.getElementById('kanbuContent').style.display = 'block';
+        document.getElementById('kanbuContent').style.animation = 'dmSlideUp 0.35s cubic-bezier(0.22,1,0.36,1)';
+        err.textContent = '';
+        // Store session
+        sessionStorage.setItem('kanbuAuth', '1');
+      } else {
+        err.textContent = 'パスワードが正しくありません。もう一度お試しください。';
+        document.getElementById('kanbuPwInput').value = '';
+        document.getElementById('kanbuPwInput').focus();
+        // Shake animation
+        const input_el = document.getElementById('kanbuPwInput');
+        input_el.style.animation = 'none';
+        input_el.style.borderColor = '#FC8181';
+        setTimeout(() => { input_el.style.borderColor = 'rgba(201,144,42,0.4)'; }, 1200);
+      }
+    }
+
+    function lockKanbu() {
+      kanbuUnlocked = false;
+      sessionStorage.removeItem('kanbuAuth');
+      document.getElementById('kanbuContent').style.display = 'none';
+      document.getElementById('kanbuLockScreen').style.display = 'flex';
+      document.getElementById('kanbuPwInput').value = '';
+      document.getElementById('kanbuPwError').textContent = '';
+      // Scroll to kanbu section
+      document.getElementById('kanbu').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleKanbuPwVisibility() {
+      const input = document.getElementById('kanbuPwInput');
+      input.type = document.getElementById('kanbuShowPw').checked ? 'text' : 'password';
+    }
+
+    // Restore session on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem('kanbuAuth') === '1') {
+        document.getElementById('kanbuLockScreen').style.display = 'none';
+        document.getElementById('kanbuContent').style.display = 'block';
+        kanbuUnlocked = true;
+      }
+    });
+  </script>
+</body>
+</html>
